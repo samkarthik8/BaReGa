@@ -1,10 +1,8 @@
 <!-- res/layout/four_bars_layout.xml -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <!-- Blue bar -->
     <View
         android:id="@+id/blueBar"
@@ -14,8 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/redBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
-
+        app:layout_constraintBottom_toTopOf="@+id/blackSection" />
     <!-- Red bar -->
     <View
         android:id="@+id/redBar"
@@ -25,8 +22,7 @@
         app:layout_constraintStart_toEndOf="@+id/blueBar"
         app:layout_constraintEnd_toStartOf="@+id/greenBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
-
+        app:layout_constraintBottom_toTopOf="@+id/blackSection" />
     <!-- Green bar -->
     <View
         android:id="@+id/greenBar"
@@ -36,8 +32,7 @@
         app:layout_constraintStart_toEndOf="@+id/redBar"
         app:layout_constraintEnd_toStartOf="@+id/orangeBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
-
+        app:layout_constraintBottom_toTopOf="@+id/blackSection" />
     <!-- Orange bar -->
     <View
         android:id="@+id/orangeBar"
@@ -47,8 +42,7 @@
         app:layout_constraintStart_toEndOf="@+id/greenBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
-
+        app:layout_constraintBottom_toTopOf="@+id/blackSection" />
     <!-- Black section at the bottom -->
     <View
         android:id="@+id/blackSection"
@@ -59,5 +53,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blueBar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.2"/> <!-- Set to 1/5 or 0.2 of the screen height -->
+        app:layout_constraintHeight_percent="0.2" /> <!-- Set to 1/5 or 0.2 of the screen height -->
 </androidx.constraintlayout.widget.ConstraintLayout>

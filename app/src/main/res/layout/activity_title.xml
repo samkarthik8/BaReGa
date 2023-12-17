@@ -5,20 +5,16 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-
     <!-- App Name -->
     <TextView
         android:id="@+id/app_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/title_padding"
-
-        android:text="Ba Re Ga"
+        android:text="BaReGa"
         android:textColor="#0000FF"
         android:textSize="24sp"
         android:textStyle="bold" />
-
-
     <!-- Start Button -->
     <Button
         android:layout_width="wrap_content"
@@ -29,7 +25,6 @@
         android:paddingBottom="10dp"
         android:text="@string/start_string"
         app:backgroundTint="@color/button_color" />
-
     <!-- Settings Button -->
     <Button
         android:layout_width="wrap_content"
@@ -40,7 +35,6 @@
         android:paddingBottom="10dp"
         android:text="@string/settings_string"
         app:backgroundTint="@color/button_color" />
-
     <!-- High Scores Button -->
     <Button
         android:layout_width="wrap_content"
@@ -51,7 +45,6 @@
         android:paddingBottom="10dp"
         android:text="@string/high_scores_string"
         app:backgroundTint="@color/button_color" />
-
     <!-- Quit Button -->
     <Button
         android:layout_width="wrap_content"
