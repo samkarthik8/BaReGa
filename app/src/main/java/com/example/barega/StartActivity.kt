@@ -3,27 +3,28 @@ package com.example.barega
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 
-class SplashActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity() {
 
-    private val SPLASH_TIME_OUT: Long = 3000 // 3 seconds
-    private val DELAY_AFTER_START: Long = 10000 // 10 seconds
+    private val splashTimeOut: Long = 3000 // 3 seconds
+    private val delayAfterSTart: Long = 10000 // 10 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             // Start MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
             // Pause for 10 seconds before finishing the activity
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 finish()
-            }, DELAY_AFTER_START)
+            }, delayAfterSTart)
 
-        }, SPLASH_TIME_OUT)
+        }, splashTimeOut)
     }
 }
