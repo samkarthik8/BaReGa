@@ -1,50 +1,63 @@
 <!-- res/layout/four_bars_layout.xml -->
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <!-- Blue, Red, Green, and Orange bars -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Blue bar -->
+    <View
+        android:id="@+id/blueBar"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="4"
-        android:orientation="horizontal">
+        android:background="@android:color/holo_blue_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/redBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
 
-        <!-- Blue bar -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/holo_blue_light" />
+    <!-- Red bar -->
+    <View
+        android:id="@+id/redBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_red_light"
+        app:layout_constraintStart_toEndOf="@+id/blueBar"
+        app:layout_constraintEnd_toStartOf="@+id/greenBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
 
-        <!-- Red bar -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/holo_red_light" />
+    <!-- Green bar -->
+    <View
+        android:id="@+id/greenBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_green_light"
+        app:layout_constraintStart_toEndOf="@+id/redBar"
+        app:layout_constraintEnd_toStartOf="@+id/orangeBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
 
-        <!-- Green bar -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_light" />
-
-        <!-- Orange bar -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/holo_orange_light" />
-    </LinearLayout>
+    <!-- Orange bar -->
+    <View
+        android:id="@+id/orangeBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_orange_light"
+        app:layout_constraintStart_toEndOf="@+id/greenBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/blackSection"/>
 
     <!-- Black section at the bottom -->
     <View
-        android:layout_width="match_parent"
+        android:id="@+id/blackSection"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@android:color/black" />
-</LinearLayout>
+        android:background="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.2"/> <!-- Set to 1/5 or 0.2 of the screen height -->
+</androidx.constraintlayout.widget.ConstraintLayout>
