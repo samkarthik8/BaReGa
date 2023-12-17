@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/title_padding"
+        android:letterSpacing="0.1"
         android:text="BaReGa"
         android:textColor="#0000FF"
         android:textSize="24sp"
