@@ -91,8 +91,8 @@ class HighScoresActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
             setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
-    }    @Suppress("UNUSED_PARAMETER")
-
+    }
+    @Suppress("UNUSED_PARAMETER")
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
