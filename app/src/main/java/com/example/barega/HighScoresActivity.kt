@@ -66,6 +66,7 @@ class HighScoresActivity : AppCompatActivity() {
             this.text = text
             setTextAppearance(R.style.TextAppearance_AppCompat_Medium)
             gravity = Gravity.CENTER
+            setPadding(0, 100, 0, 100) // Adjust the values as needed
         }
     }
 
@@ -86,6 +87,7 @@ class HighScoresActivity : AppCompatActivity() {
             this.text = text
             setTextAppearance(R.style.TextAppearance_AppCompat_Body1)
             gravity = Gravity.CENTER
+            setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
     }
     @Suppress("UNUSED_PARAMETER")

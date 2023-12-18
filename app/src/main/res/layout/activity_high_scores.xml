@@ -8,7 +8,6 @@
         android:id="@+id/app_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/title_padding"
         android:background="@color/menu_color"
         android:gravity="center"
         android:letterSpacing="0.1"
