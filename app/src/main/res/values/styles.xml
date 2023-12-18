@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Style for Medium Text Appearance -->
     <style name="style_score_header">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@android:color/holo_orange_dark</item>
-        <!-- You can add more attributes as needed -->
+        <item name="android:textStyle">bold</item>
     </style>
+
     <style name="style_score_row">
         <item name="android:textSize">26sp</item>
         <item name="android:textColor">@color/black</item>
