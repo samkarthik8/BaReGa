@@ -20,7 +20,7 @@ class ScoreListAdapter(private val scores: List<Score>) :
 
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
         val currentScore = scores[position]
-        holder.scoreTextView.text = "${currentScore.playerName}: ${currentScore.scoreValue}"
+        holder.scoreTextView.text = "${currentScore.playerName} : ${currentScore.level} : ${currentScore.scoreValue}"
     }
 
     override fun getItemCount(): Int {

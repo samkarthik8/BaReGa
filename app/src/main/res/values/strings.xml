@@ -5,4 +5,5 @@
     <string name="settings_string">SETTINGS</string>
     <string name="high_scores_string">HIGH SCORES</string>
     <string name="quit_string">QUIT</string>
+    <string name="back_string">BACK</string>
 </resources>

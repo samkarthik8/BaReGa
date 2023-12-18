@@ -1,6 +1,8 @@
 package com.example.barega
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,5 +44,11 @@ class HighScoresActivity : AppCompatActivity() {
         // Set up RecyclerView adapter
         recyclerView.adapter = ScoreListAdapter(topScores)
     }
+    fun onBackButtonClick(ignoredView: View) {
+        // Start TitleActivity
+        val intent = Intent(this, TitleActivity::class.java)
+        startActivity(intent)
+    }
+
 }
 
