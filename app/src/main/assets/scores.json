@@ -1,12 +1,52 @@
 [
-  {"playerName": "Aarav", "level": 5, "scoreValue": 1200},
-  {"playerName": "Aishwarya", "level": 4, "scoreValue": 1000},
-  {"playerName": "Arjun", "level": 3, "scoreValue": 800},
-  {"playerName": "Ishaan", "level": 2, "scoreValue": 600},
-  {"playerName": "Neha", "level": 1, "scoreValue": 400},
-  {"playerName": "Kavya", "level": 1, "scoreValue": 200},
-  {"playerName": "Rohan", "level": 1, "scoreValue": 1500},
-  {"playerName": "Priya", "level": 1, "scoreValue": 100},
-  {"playerName": "Aditya", "level": 1, "scoreValue": 50},
-  {"playerName": "Ananya", "level": 1, "scoreValue": 25}
+  {
+    "playerName": "Aarav",
+    "level": 5,
+    "scoreValue": 1200
+  },
+  {
+    "playerName": "Aishwarya",
+    "level": 4,
+    "scoreValue": 1000
+  },
+  {
+    "playerName": "Arjun",
+    "level": 3,
+    "scoreValue": 800
+  },
+  {
+    "playerName": "Ishaan",
+    "level": 2,
+    "scoreValue": 600
+  },
+  {
+    "playerName": "Neha",
+    "level": 1,
+    "scoreValue": 400
+  },
+  {
+    "playerName": "Kavya",
+    "level": 1,
+    "scoreValue": 200
+  },
+  {
+    "playerName": "Rohan",
+    "level": 1,
+    "scoreValue": 1500
+  },
+  {
+    "playerName": "Priya",
+    "level": 1,
+    "scoreValue": 100
+  },
+  {
+    "playerName": "Aditya",
+    "level": 1,
+    "scoreValue": 50
+  },
+  {
+    "playerName": "Ananya",
+    "level": 1,
+    "scoreValue": 25
+  }
 ]
