@@ -7,20 +7,15 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 
 class StartActivity : AppCompatActivity() {
-    private val splashTimeOut: Long = 3000 // 3 seconds
-    private val delayAfterSTart: Long = 10000 // 10 seconds
+    private val splashTimeOut: Long = 1000 // 1 second
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
         Handler(Looper.getMainLooper()).postDelayed({
-            // Start MainActivity
-            val intent = Intent(this, MainActivity::class.java)
+            // Start TitleActivity
+            val intent = Intent(this, TitleActivity::class.java)
             startActivity(intent)
-            // Pause for 10 seconds before finishing the activity
-            Handler(Looper.getMainLooper()).postDelayed({
-                finish()
-            }, delayAfterSTart)
+            finish() // Finish the activity immediately after starting TitleActivity
         }, splashTimeOut)
     }
 }
