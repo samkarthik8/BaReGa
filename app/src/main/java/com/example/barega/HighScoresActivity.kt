@@ -88,7 +88,7 @@ class HighScoresActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
         }
     }
-    @SuppressWarnings("unused")
+    @Suppress("UNUSED_PARAMETER")
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
