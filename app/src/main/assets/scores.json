@@ -1,0 +1,12 @@
+[
+  {"playerName": "Player1", "scoreValue": 1200},
+  {"playerName": "Player2", "scoreValue": 1000},
+  {"playerName": "Player3", "scoreValue": 800},
+  {"playerName": "Player4", "scoreValue": 600},
+  {"playerName": "Player5", "scoreValue": 400},
+  {"playerName": "Player6", "scoreValue": 200},
+  {"playerName": "Player7", "scoreValue": 150},
+  {"playerName": "Player8", "scoreValue": 100},
+  {"playerName": "Player9", "scoreValue": 50},
+  {"playerName": "Player10", "scoreValue": 25}
+]

@@ -45,7 +45,16 @@ class TitleActivity : AppCompatActivity() {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
-
+    fun openSettings(view: View) {
+        // Start SettingsActivity
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+    }
+    fun viewHighScores(view: View) {
+        // Start HighScoresActivity
+        val intent = Intent(this, HighScoresActivity::class.java)
+        startActivity(intent)
+    }
     fun quitApp(view: View) {
         finishAffinity() // This will finish the current activity and all parent activities, effectively closing the app
     }
