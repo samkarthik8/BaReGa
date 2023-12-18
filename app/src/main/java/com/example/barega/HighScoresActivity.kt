@@ -97,5 +97,6 @@ class HighScoresActivity : AppCompatActivity() {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
         startActivity(intent)
+        finish() // Finish the activity immediately after starting TitleActivity
     }
 }
