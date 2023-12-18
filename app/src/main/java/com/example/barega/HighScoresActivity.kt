@@ -44,7 +44,7 @@ class HighScoresActivity : AppCompatActivity() {
         // Set up RecyclerView adapter
         recyclerView.adapter = ScoreListAdapter(this, topScores)
     }
-
+    @SuppressWarnings("unused")
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
