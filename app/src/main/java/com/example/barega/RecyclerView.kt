@@ -5,9 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Context
 
-class ScoreListAdapter(private val scores: List<Score>) :
+
+class ScoreListAdapter(private val context: Context, private val scores: List<Score>) :
     RecyclerView.Adapter<ScoreListAdapter.ScoreViewHolder>() {
+
     class ScoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val scoreTextView: TextView = itemView.findViewById(android.R.id.text1)
     }
@@ -20,7 +23,16 @@ class ScoreListAdapter(private val scores: List<Score>) :
 
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
         val currentScore = scores[position]
-        holder.scoreTextView.text = "${currentScore.playerName} : ${currentScore.level} : ${currentScore.scoreValue}"
+
+        // Format the string using the context from the adapter
+        val formattedString = context.getString(
+            R.string.player_score,
+            currentScore.playerName,
+            currentScore.level,
+            currentScore.scoreValue
+        )
+
+        holder.scoreTextView.text = formattedString
     }
 
     override fun getItemCount(): Int {
