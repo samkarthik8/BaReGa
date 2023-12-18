@@ -17,7 +17,8 @@ class ScoresManager(context: Context) {
         val json = sharedPreferences.getString("scores", null)
         return if (json != null) {
             val typeToken = object : TypeToken<List<Score>>() {}.type
-            Gson().fromJson(json, typeToken)
+            val scores = Gson().fromJson<List<Score>>(json, typeToken)
+            scores.sortedByDescending { it.scoreValue }
         } else {
             emptyList()
         }
