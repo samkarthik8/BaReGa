@@ -6,7 +6,6 @@
     <string name="high_scores_string">HIGH SCORES</string>
     <string name="quit_string">QUIT</string>
     <string name="back_string">BACK</string>
-    <string name="player_score">Player: %1$s, Level: %2$d, Score: %3$d</string>
     <string name="high_score_column1">NAME</string>
     <string name="high_score_column2">LEVEL</string>
     <string name="high_score_column3">SCORE</string>

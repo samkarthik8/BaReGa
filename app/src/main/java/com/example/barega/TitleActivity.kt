@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.example.barega
 
 import android.content.Intent

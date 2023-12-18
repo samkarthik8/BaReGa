@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.example.barega
 
 import android.content.Intent
@@ -51,19 +53,19 @@ class HighScoresActivity : AppCompatActivity() {
 
     private fun addHeadingsToTable() {
         val headingRow = TableRow(this)
-        headingRow.addView(createHeadingTextView("NAME"))
-        headingRow.addView(createHeadingTextView("LEVEL"))
-        headingRow.addView(createHeadingTextView("SCORE"))
+        headingRow.addView(createHeadingTextView(R.string.high_score_column1))
+        headingRow.addView(createHeadingTextView(R.string.high_score_column2))
+        headingRow.addView(createHeadingTextView(R.string.high_score_column3))
         tableLayout.addView(headingRow)
     }
 
-    private fun createHeadingTextView(text: String): TextView {
+    private fun createHeadingTextView(textResId: Int): TextView {
         return TextView(this).apply {
             layoutParams = TableRow.LayoutParams(
                 TableRow.LayoutParams.WRAP_CONTENT,
                 TableRow.LayoutParams.WRAP_CONTENT
             ).apply { weight = 1f }
-            this.text = text
+            this.text = getString(textResId)
             setTextAppearance(R.style.style_score_header)
             gravity = Gravity.CENTER
             setPadding(0, 100, 0, 100) // Adjust the values as needed
@@ -89,8 +91,8 @@ class HighScoresActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
             setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
-    }
-    @Suppress("UNUSED_PARAMETER")
+    }    @Suppress("UNUSED_PARAMETER")
+
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
