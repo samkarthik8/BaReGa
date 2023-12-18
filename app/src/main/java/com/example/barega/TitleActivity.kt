@@ -1,7 +1,6 @@
 package com.example.barega
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -39,7 +38,6 @@ class TitleActivity : AppCompatActivity() {
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
         textView.text = coloredText
-
     }
 
     fun startGame(view: View) {
