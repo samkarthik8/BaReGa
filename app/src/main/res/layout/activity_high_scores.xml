@@ -14,7 +14,7 @@
         android:letterSpacing="0.1"
         android:padding="@dimen/menu_padding"
         android:text="@string/high_scores_string"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
     <!-- TableLayout for headings and rows -->
@@ -22,54 +22,7 @@
         android:id="@+id/tableLayoutScores"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/app_name_text_view"
-        android:layout_marginTop="16dp">
-        <!-- Heading TableRow -->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/menu_color">
-            <!-- Heading cells -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/high_score_column1"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/high_score_column2"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/high_score_column3"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </TableRow>
-    </TableLayout>
-    <!-- RecyclerView occupying the rest of the screen -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewScores"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/app_name_text_view"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/menu_color"
-        android:padding="16dp" />
+        android:layout_below="@+id/app_name_text_view" />
     <!-- Back Button at the bottom -->
     <Button
         android:id="@+id/backButton"

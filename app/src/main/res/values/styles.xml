@@ -2,14 +2,13 @@
 <resources>
     <!-- Style for Medium Text Appearance -->
     <style name="TextAppearance.AppCompat.Medium">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@android:color/holo_orange_dark</item>
         <!-- You can add more attributes as needed -->
     </style>
     <!-- Style for Body1 Text Appearance -->
     <style name="TextAppearance.AppCompat.Body1">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/black</item>
-        <!-- You can add more attributes as needed -->
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

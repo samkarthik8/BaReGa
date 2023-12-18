@@ -8,7 +8,6 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -66,9 +65,7 @@ class HighScoresActivity : AppCompatActivity() {
             ).apply { weight = 1f }
             this.text = text
             setTextAppearance(R.style.TextAppearance_AppCompat_Medium)
-            setTextColor(ContextCompat.getColor(this@HighScoresActivity, android.R.color.white))
             gravity = Gravity.CENTER
-            setPadding(8, 8, 8, 8)
         }
     }
 
@@ -88,9 +85,7 @@ class HighScoresActivity : AppCompatActivity() {
             ).apply { weight = 1f }
             this.text = text
             setTextAppearance(R.style.TextAppearance_AppCompat_Body1)
-            setTextColor(ContextCompat.getColor(this@HighScoresActivity, android.R.color.black))
             gravity = Gravity.CENTER
-            setPadding(8, 8, 8, 8)
         }
     }
     @SuppressWarnings("unused")
