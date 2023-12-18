@@ -2,4 +2,5 @@
 <resources>
     <dimen name="title_padding">50dp</dimen>
     <dimen name="button_padding">20dp</dimen>
+    <dimen name="menu_padding">20dp</dimen>
 </resources>
