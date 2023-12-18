@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style for Medium Text Appearance -->
+    <style name="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <!-- You can add more attributes as needed -->
+    </style>
+    <!-- Style for Body1 Text Appearance -->
+    <style name="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <!-- You can add more attributes as needed -->
+    </style>
+</resources>

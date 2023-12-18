@@ -2,15 +2,18 @@ package com.example.barega
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class HighScoresActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var tableLayout: TableLayout
     private lateinit var scoresManager: ScoresManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +21,7 @@ class HighScoresActivity : AppCompatActivity() {
 
         scoresManager = ScoresManager(this)
 
-        recyclerView = findViewById(R.id.recyclerViewScores)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
+        tableLayout = findViewById(R.id.tableLayoutScores)
         updateScoresList()
     }
 
@@ -32,7 +33,7 @@ class HighScoresActivity : AppCompatActivity() {
             // Handle exception (e.g., file not found)
             ""
         }
-        // Convert JSON string to List<com.example.barega.Score>
+        // Convert JSON string to List<Score>
         val scoresList = Gson().fromJson<List<Score>>(
             jsonScores,
             object : TypeToken<List<Score>>() {}.type
@@ -41,8 +42,56 @@ class HighScoresActivity : AppCompatActivity() {
         scoresManager.saveScores(scoresList)
         // Retrieve the scores from SharedPreferences
         val topScores = scoresManager.getTopScores()
-        // Set up RecyclerView adapter
-        recyclerView.adapter = ScoreListAdapter(this, topScores)
+        // Add headings to the table
+        addHeadingsToTable()
+        // Add scores to the table
+        for (score in topScores) {
+            addScoreToTable(score)
+        }
+    }
+
+    private fun addHeadingsToTable() {
+        val headingRow = TableRow(this)
+        headingRow.addView(createHeadingTextView("NAME"))
+        headingRow.addView(createHeadingTextView("LEVEL"))
+        headingRow.addView(createHeadingTextView("SCORE"))
+        tableLayout.addView(headingRow)
+    }
+
+    private fun createHeadingTextView(text: String): TextView {
+        return TextView(this).apply {
+            layoutParams = TableRow.LayoutParams(
+                TableRow.LayoutParams.WRAP_CONTENT,
+                TableRow.LayoutParams.WRAP_CONTENT
+            ).apply { weight = 1f }
+            this.text = text
+            setTextAppearance(R.style.TextAppearance_AppCompat_Medium)
+            setTextColor(ContextCompat.getColor(this@HighScoresActivity, android.R.color.white))
+            gravity = Gravity.CENTER
+            setPadding(8, 8, 8, 8)
+        }
+    }
+
+    private fun addScoreToTable(score: Score) {
+        val scoreRow = TableRow(this)
+        scoreRow.addView(createScoreTextView(score.playerName))
+        scoreRow.addView(createScoreTextView(score.level.toString()))
+        scoreRow.addView(createScoreTextView(score.scoreValue.toString()))
+        tableLayout.addView(scoreRow)
+    }
+
+    private fun createScoreTextView(text: String): TextView {
+        return TextView(this).apply {
+            layoutParams = TableRow.LayoutParams(
+                TableRow.LayoutParams.WRAP_CONTENT,
+                TableRow.LayoutParams.WRAP_CONTENT
+            ).apply { weight = 1f }
+            this.text = text
+            setTextAppearance(R.style.TextAppearance_AppCompat_Body1)
+            setTextColor(ContextCompat.getColor(this@HighScoresActivity, android.R.color.black))
+            gravity = Gravity.CENTER
+            setPadding(8, 8, 8, 8)
+        }
     }
     @SuppressWarnings("unused")
     fun onBackButtonClick(view: View) {
@@ -51,4 +100,3 @@ class HighScoresActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
-

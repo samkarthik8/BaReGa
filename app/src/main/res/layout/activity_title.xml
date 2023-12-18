@@ -12,47 +12,46 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/title_padding"
         android:letterSpacing="0.1"
-        android:textColor="#0000FF"
         android:textSize="24sp"
         android:textStyle="bold" />
     <!-- Start Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_padding"
+        android:layout_marginTop="@dimen/button_margin"
         android:onClick="startGame"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/button_padding"
+        android:paddingBottom="@dimen/button_padding"
         android:text="@string/start_string"
         app:backgroundTint="@color/button_color" />
     <!-- Settings Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_padding"
+        android:layout_marginTop="@dimen/button_margin"
         android:onClick="openSettings"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/button_padding"
+        android:paddingBottom="@dimen/button_padding"
         android:text="@string/settings_string"
         app:backgroundTint="@color/button_color" />
     <!-- High Scores Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_padding"
+        android:layout_marginTop="@dimen/button_margin"
         android:onClick="viewHighScores"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/button_padding"
+        android:paddingBottom="@dimen/button_padding"
         android:text="@string/high_scores_string"
         app:backgroundTint="@color/button_color" />
     <!-- Quit Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_padding"
+        android:layout_marginTop="@dimen/button_margin"
         android:onClick="quitApp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/button_padding"
+        android:paddingBottom="@dimen/button_padding"
         android:text="@string/quit_string"
         app:backgroundTint="@color/button_color" />
 </LinearLayout>
