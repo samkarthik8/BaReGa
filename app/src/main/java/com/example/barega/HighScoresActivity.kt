@@ -42,13 +42,13 @@ class HighScoresActivity : AppCompatActivity() {
         // Retrieve the scores from SharedPreferences
         val topScores = scoresManager.getTopScores()
         // Set up RecyclerView adapter
-        recyclerView.adapter = ScoreListAdapter(this,topScores)
+        recyclerView.adapter = ScoreListAdapter(this, topScores)
     }
-    fun onBackButtonClick(ignoredView: View) {
+
+    fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
         startActivity(intent)
     }
-
 }
 

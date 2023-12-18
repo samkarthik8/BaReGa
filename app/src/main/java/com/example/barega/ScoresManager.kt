@@ -5,7 +5,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class ScoresManager(context: Context) {
-
     private val sharedPreferences =
         context.getSharedPreferences("high_scores", Context.MODE_PRIVATE)
 

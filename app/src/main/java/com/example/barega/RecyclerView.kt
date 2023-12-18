@@ -1,16 +1,14 @@
 package com.example.barega
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import android.content.Context
-
 
 class ScoreListAdapter(private val context: Context, private val scores: List<Score>) :
     RecyclerView.Adapter<ScoreListAdapter.ScoreViewHolder>() {
-
     class ScoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val scoreTextView: TextView = itemView.findViewById(android.R.id.text1)
     }
@@ -23,7 +21,6 @@ class ScoreListAdapter(private val context: Context, private val scores: List<Sc
 
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
         val currentScore = scores[position]
-
         // Format the string using the context from the adapter
         val formattedString = context.getString(
             R.string.player_score,
