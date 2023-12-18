@@ -64,7 +64,7 @@ class HighScoresActivity : AppCompatActivity() {
                 TableRow.LayoutParams.WRAP_CONTENT
             ).apply { weight = 1f }
             this.text = text
-            setTextAppearance(R.style.TextAppearance_AppCompat_Medium)
+            setTextAppearance(R.style.style_score_header)
             gravity = Gravity.CENTER
             setPadding(0, 100, 0, 100) // Adjust the values as needed
         }
@@ -85,7 +85,7 @@ class HighScoresActivity : AppCompatActivity() {
                 TableRow.LayoutParams.WRAP_CONTENT
             ).apply { weight = 1f }
             this.text = text
-            setTextAppearance(R.style.TextAppearance_AppCompat_Body1)
+            setTextAppearance(R.style.style_score_row)
             gravity = Gravity.CENTER
             setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
