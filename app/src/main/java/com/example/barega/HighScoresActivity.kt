@@ -1,7 +1,5 @@
 package com.example.barega
 
-import Score
-import ScoresManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +30,7 @@ class HighScoresActivity : AppCompatActivity() {
             // Handle exception (e.g., file not found)
             ""
         }
-        // Convert JSON string to List<Score>
+        // Convert JSON string to List<com.example.barega.Score>
         val scoresList = Gson().fromJson<List<Score>>(
             jsonScores,
             object : TypeToken<List<Score>>() {}.type

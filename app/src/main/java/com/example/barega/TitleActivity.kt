@@ -40,22 +40,22 @@ class TitleActivity : AppCompatActivity() {
         textView.text = coloredText
     }
 
-    fun startGame(view: View) {
+    fun startGame(ignoredView: View) {
         // Start GameActivity
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
-    fun openSettings(view: View) {
+    fun openSettings(ignoredView: View) {
         // Start SettingsActivity
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
-    fun viewHighScores(view: View) {
+    fun viewHighScores(ignoredView: View) {
         // Start HighScoresActivity
         val intent = Intent(this, HighScoresActivity::class.java)
         startActivity(intent)
     }
-    fun quitApp(view: View) {
+    fun quitApp(ignoredView: View) {
         finishAffinity() // This will finish the current activity and all parent activities, effectively closing the app
     }
 }
