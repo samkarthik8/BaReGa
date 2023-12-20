@@ -46,4 +46,26 @@
         app:layout_constraintStart_toEndOf="@+id/redBar"
         app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
         app:layout_constraintWidth_percent="0.333" />
+    <!-- Answer section at the bottom -->
+    <View
+        android:id="@+id/answerColorSection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_purple"
+        app:layout_constraintBottom_toTopOf="@+id/blackSection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueBar" />
+    <!-- Score section at the bottom -->
+    <View
+        android:id="@+id/blackSection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerColorSection" />
 </androidx.constraintlayout.widget.ConstraintLayout>
