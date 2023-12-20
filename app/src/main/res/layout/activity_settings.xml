@@ -1,0 +1,39 @@
+<!-- res/layout/activity_high_scores.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/app_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/menu_color"
+        android:gravity="center"
+        android:letterSpacing="0.1"
+        android:padding="@dimen/menu_padding"
+        android:text="@string/settings_string"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <!-- TableLayout for headings and rows -->
+    <TableLayout
+        android:id="@+id/tableLayoutScores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_name_text_view" />
+    <!-- Back Button at the bottom -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/button_margin"
+        android:layout_marginBottom="16dp"
+        android:onClick="onBackButtonClick"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/back_string"
+        app:backgroundTint="@color/button_color" />
+</RelativeLayout>
