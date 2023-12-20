@@ -1,7 +1,6 @@
 <!-- res/layout/activity_high_scores.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/style_screen_page_RelativeLayout">
     <!-- App Name -->
     <TextView
         android:id="@+id/app_name_text_view"
