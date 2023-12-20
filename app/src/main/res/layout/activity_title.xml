@@ -7,12 +7,7 @@
     <!-- App Name -->
     <TextView
         android:id="@+id/app_name_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/title_padding"
-        android:letterSpacing="0.1"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        style="@style/style_game_title" />
     <!-- Start Button -->
     <Button
         style="@style/style_button_title_screen"
