@@ -1,6 +1,5 @@
 <!-- res/layout/title_screen_layout.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -16,42 +15,21 @@
         android:textStyle="bold" />
     <!-- Start Button -->
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin"
+        style="@style/style_button_title_screen"
         android:onClick="startGame"
-        android:paddingTop="@dimen/button_padding"
-        android:paddingBottom="@dimen/button_padding"
-        android:text="@string/start_string"
-        app:backgroundTint="@color/button_color" />
+        android:text="@string/start_string" />
     <!-- Settings Button -->
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin"
+        style="@style/style_button_title_screen"
         android:onClick="openSettings"
-        android:paddingTop="@dimen/button_padding"
-        android:paddingBottom="@dimen/button_padding"
-        android:text="@string/settings_string"
-        app:backgroundTint="@color/button_color" />
+        android:text="@string/settings_string" />
     <!-- High Scores Button -->
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin"
+        style="@style/style_button_title_screen"
         android:onClick="viewHighScores"
-        android:paddingTop="@dimen/button_padding"
-        android:paddingBottom="@dimen/button_padding"
-        android:text="@string/high_scores_string"
-        app:backgroundTint="@color/button_color" />
+        android:text="@string/high_scores_string" />
     <!-- Quit Button -->
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin"
-        android:onClick="quitApp"
-        android:paddingTop="@dimen/button_padding"
-        android:paddingBottom="@dimen/button_padding"
-        android:text="@string/quit_string"
-        app:backgroundTint="@color/button_color" />
+        style="@style/style_button_title_screen"
+        android:text="@string/quit_string" />
 </LinearLayout>
