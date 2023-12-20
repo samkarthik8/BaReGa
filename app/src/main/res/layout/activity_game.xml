@@ -1,57 +1,49 @@
-<!-- res/layout/four_bars_layout.xml -->
+<!-- res/layout/activity_game.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- Blue bar -->
+    <!-- Question section at the top -->
+    <View
+        android:id="@+id/questionColorSection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Blue bar below the question section -->
     <View
         android:id="@+id/blueBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"
         app:layout_constraintEnd_toStartOf="@+id/redBar"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
+        app:layout_constraintWidth_percent="0.333" />
     <!-- Red bar -->
     <View
         android:id="@+id/redBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_red_light"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"
         app:layout_constraintEnd_toStartOf="@+id/greenBar"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toEndOf="@+id/blueBar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
+        app:layout_constraintWidth_percent="0.333" />
     <!-- Green bar -->
     <View
         android:id="@+id/greenBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_green_light"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"
-        app:layout_constraintEnd_toStartOf="@+id/orangeBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toEndOf="@+id/redBar"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!-- Orange bar -->
-    <View
-        android:id="@+id/orangeBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@android:color/holo_orange_light"
-        app:layout_constraintBottom_toTopOf="@+id/blackSection"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/greenBar"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!-- Black section at the bottom -->
-    <View
-        android:id="@+id/blackSection"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueBar" /> <!-- Set to 1/5 or 0.2 of the screen height -->
+        app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
+        app:layout_constraintWidth_percent="0.333" />
 </androidx.constraintlayout.widget.ConstraintLayout>
