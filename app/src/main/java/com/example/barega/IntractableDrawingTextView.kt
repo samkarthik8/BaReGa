@@ -52,18 +52,16 @@ class IntractableDrawingTextView : AppCompatTextView {
                 // Update the dot position when the user touches or moves
                 dotX = event.x
                 dotY = event.y
-
                 // Get the ID of the clicked view
                 val resourceId = resources.getResourceName(id)
-
                 // Get the color based on the resourceId
                 val dotColor = colorMap[resourceId] ?: Color.BLACK
-
                 // Set dotPaint.color to the selected color
                 dotPaint.color = dotColor
-
                 // Invalidate the view to trigger a redraw
                 invalidate()
+                // Call performClick() when a click is detected
+                performClick()
                 return true
             }
 
@@ -73,11 +71,9 @@ class IntractableDrawingTextView : AppCompatTextView {
 
     override fun performClick(): Boolean {
         // Handle the click event here
-
-        // Call super.performClick() as recommended
+        // You can also call super.performClick() if needed
         super.performClick()
 
         return true
     }
-
 }
