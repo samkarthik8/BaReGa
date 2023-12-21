@@ -73,14 +73,33 @@ class IntractableDrawingTextView : AppCompatTextView {
     override fun performClick(): Boolean {
         // Handle the click event here
         // You can also call super.performClick() if needed
+        // Get the ID of the clicked view
+        val resourceId = resources.getResourceName(id)
+        var red = 0
+        var green = 0
+        var blue = 0
+        Log.d("Resource Id", "resourceId clicked is $resourceId")
         // Get the click position
         val clickY = dotY
         val maxY = this.height
         Log.d("Max Y Value", "Max Y: $maxY")
         // Log or use the click coordinates as needed
         Log.d("ClickPosition", " Y: $clickY")
-        // Change the view color on click
-        setBackgroundColor(Color.GREEN)
+        if (resourceId.contains("blue")) {
+            // Calculate RGB values based on the Y coordinate
+            blue = ((maxY - clickY) / maxY * 255).toInt()
+        }
+        if (resourceId.contains("red")) {
+            // Calculate RGB values based on the Y coordinate
+            red = ((maxY - clickY) / maxY * 255).toInt()
+        }
+        if (resourceId.contains("green")) {
+            // Calculate RGB values based on the Y coordinate
+            green = ((maxY - clickY) / maxY * 255).toInt()
+        }
+        // Set the background color based on RGB values
+        setBackgroundColor(Color.rgb(red, green, blue))
+        // Set the background color based on the Y coordinate
         // Call super.performClick() to maintain default behavior
         super.performClick()
 
