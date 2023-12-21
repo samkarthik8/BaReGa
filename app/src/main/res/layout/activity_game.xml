@@ -71,35 +71,74 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/darker_gray"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerColorSection">
-        <!-- Score TextView -->
-        <TextView
-            android:layout_width="0dp"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="start"
-            android:text="@string/scoreText"
-            android:textColor="@android:color/holo_orange_light" />
-        <!-- Level TextView -->
-        <TextView
-            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal">
+            <!-- Score TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/scoreText"
+                android:textColor="@android:color/holo_orange_light" />
+            <!-- Level TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top|center_horizontal"
+                android:text="@string/levelText"
+                android:textColor="@android:color/holo_orange_light" />
+            <!-- Chances Left TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/chancesLeftText"
+                android:textColor="@android:color/holo_orange_light" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="top|center_horizontal"
-            android:text="@string/levelText"
-            android:textColor="@android:color/holo_orange_light" />
-        <!-- Chances Left TextView -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:text="@string/chancesLeftText"
-            android:textColor="@android:color/holo_orange_light" />
+            android:layout_weight="0.5"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal">
+            <!-- Score TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="5481"
+                android:textColor="@android:color/holo_orange_light" />
+            <!-- Level TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top|center_horizontal"
+                android:text="1"
+                android:textColor="@android:color/holo_orange_light" />
+            <!-- Chances Left TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="30"
+                android:textColor="@android:color/holo_orange_light" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
