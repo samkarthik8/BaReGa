@@ -63,4 +63,33 @@ object Utils {
     fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
     }
+
+    fun setInitialBarColors(
+        context: Context,
+    ) {
+        val barRed = 255
+        val barGreen = 255
+        val barBlue = 255
+        setTextViewBackgroundColor(
+            context,
+            "redBar",
+            barRed,
+            0,
+            0
+        )
+        setTextViewBackgroundColor(
+            context,
+            "greenBar",
+            0,
+            barGreen,
+            0
+        )
+        setTextViewBackgroundColor(
+            context,
+            "blueBar",
+            0,
+            0,
+            barBlue
+        )
+    }
 }

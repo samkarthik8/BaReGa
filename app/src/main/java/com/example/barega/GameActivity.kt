@@ -11,5 +11,6 @@ class GameActivity : AppCompatActivity() {
 //        var level_number = 1
 //        Utils.setTextViewBackgroundColor(this, "questionColorSection", 255, 255, 255)
         Utils.setLevelQuestionColor(this)
+        Utils.setInitialBarColors(this)
     }
 }
