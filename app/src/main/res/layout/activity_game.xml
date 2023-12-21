@@ -83,22 +83,23 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:orientation="horizontal">
-            <!-- Score TextView -->
+            <!-- Score Titles -->
             <TextView
-                style="@style/style_score_section_value"
+                style="@style/style_score_section_title"
                 android:gravity="start"
                 android:text="@string/scoreText" />
             <!-- Level TextView -->
             <TextView
-                style="@style/style_score_section_value"
+                style="@style/style_score_section_title"
                 android:gravity="top|center_horizontal"
                 android:text="@string/levelText" />
             <!-- Chances Left TextView -->
             <TextView
-                style="@style/style_score_section_value"
+                style="@style/style_score_section_title"
                 android:gravity="end"
                 android:text="@string/chancesLeftText" />
         </LinearLayout>
+        <!-- Score Values -->
 
         <LinearLayout
             android:layout_width="match_parent"
