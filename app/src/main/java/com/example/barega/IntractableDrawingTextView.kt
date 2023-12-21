@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 
@@ -72,7 +73,17 @@ class IntractableDrawingTextView : AppCompatTextView {
     override fun performClick(): Boolean {
         // Handle the click event here
         // You can also call super.performClick() if needed
+        // Get the click position
+        val clickY = dotY
+        val maxY = this.height
+        Log.d("Max Y Value", "Max Y: $maxY")
+        // Log or use the click coordinates as needed
+        Log.d("ClickPosition", " Y: $clickY")
+        // Change the view color on click
+        setBackgroundColor(Color.GREEN)
+        // Call super.performClick() to maintain default behavior
         super.performClick()
+
         return true
     }
 }
