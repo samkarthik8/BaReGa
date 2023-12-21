@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <!-- Blue bar -->
-    <com.example.barega.IntractableBlueDrawingTextView
+    <com.example.barega.IntractableDrawingTextView
         android:id="@+id/blueBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
         app:layout_constraintWidth_percent="0.333" />
     <!-- Red bar -->
-    <TextView
+    <com.example.barega.IntractableDrawingTextView
         android:id="@+id/redBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
         app:layout_constraintWidth_percent="0.333" />
     <!-- Green bar -->
-    <TextView
+    <com.example.barega.IntractableDrawingTextView
         android:id="@+id/greenBar"
         android:layout_width="0dp"
         android:layout_height="0dp"

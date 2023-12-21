@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 
-class IntractableBlueDrawingTextView : AppCompatTextView {
+class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
     private var dotY: Float = 0f
     private val dotRadius = 10f
@@ -46,6 +46,13 @@ class IntractableBlueDrawingTextView : AppCompatTextView {
                 // Update the dot position when the user touches or moves
                 dotX = event.x
                 dotY = event.y
+
+                // Get the ID of the clicked view
+                val resourceId = resources.getResourceName(id)
+
+                // Print the ID
+                println("Clicked View ID: $resourceId")
+
                 // Invalidate the view to trigger a redraw
                 invalidate()
                 return true
@@ -54,4 +61,5 @@ class IntractableBlueDrawingTextView : AppCompatTextView {
             else -> return super.onTouchEvent(event)
         }
     }
+
 }
