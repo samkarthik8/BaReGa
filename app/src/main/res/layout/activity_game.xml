@@ -86,29 +86,24 @@
             android:orientation="horizontal">
             <!-- Score TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="start"
                 android:text="@string/scoreText"
                 android:textColor="@android:color/holo_orange_light" />
             <!-- Level TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
                 android:text="@string/levelText"
                 android:textColor="@android:color/holo_orange_light" />
             <!-- Chances Left TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="end"
                 android:text="@string/chancesLeftText"
                 android:textColor="@android:color/holo_orange_light" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -117,25 +112,19 @@
             android:orientation="horizontal">
             <!-- Score TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="start"
                 android:text="5481"
                 android:textColor="@android:color/holo_orange_light" />
             <!-- Level TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
                 android:text="1"
                 android:textColor="@android:color/holo_orange_light" />
             <!-- Chances Left TextView -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/style_score_section_value"
                 android:gravity="end"
                 android:text="30"
                 android:textColor="@android:color/holo_orange_light" />
