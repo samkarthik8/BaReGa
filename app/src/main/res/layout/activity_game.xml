@@ -8,7 +8,6 @@
         android:id="@+id/questionColorSection"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/button_color"
         android:gravity="center"
         android:text="@string/questionColorText"
         android:textColor="@android:color/white"
