@@ -9,7 +9,6 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 //        var level_number = 1
-//        Utils.setTextViewBackgroundColor(this, "questionColorSection", 255, 255, 255)
         Utils.setLevelQuestionColor(this)
         Utils.setInitialBarColors(this)
     }

@@ -73,7 +73,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         // Handle the click event here
         // You can also call super.performClick() if needed
         super.performClick()
-
         return true
     }
 }
