@@ -70,7 +70,7 @@
         android:id="@+id/blackSection"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/black"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,52 +82,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:background="@android:color/darker_gray"
             android:orientation="horizontal">
             <!-- Score TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="start"
-                android:text="@string/scoreText"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="@string/scoreText" />
             <!-- Level TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
-                android:text="@string/levelText"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="@string/levelText" />
             <!-- Chances Left TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="end"
-                android:text="@string/chancesLeftText"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="@string/chancesLeftText" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:background="@android:color/darker_gray"
             android:orientation="horizontal">
             <!-- Score TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="start"
-                android:text="5481"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="5481" />
             <!-- Level TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
-                android:text="1"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="1" />
             <!-- Chances Left TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="end"
-                android:text="30"
-                android:textColor="@android:color/holo_orange_light" />
+                android:text="30" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
