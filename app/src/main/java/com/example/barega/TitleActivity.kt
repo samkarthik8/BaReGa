@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "RedundantSuppression")
 
 package com.example.barega
 
@@ -41,25 +41,25 @@ class TitleActivity : AppCompatActivity() {
         )
         textView.text = coloredText
     }
-    @Suppress("UNUSED_PARAMETER")
+    @Suppress("unused")
     fun startGame(view: View) {
         // Start GameActivity
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
-    @Suppress("UNUSED_PARAMETER")
+    @Suppress("unused")
     fun openSettings(view: View) {
         // Start SettingsActivity
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
-    @Suppress("UNUSED_PARAMETER")
+    @Suppress("unused")
     fun viewHighScores(view: View) {
         // Start HighScoresActivity
         val intent = Intent(this, HighScoresActivity::class.java)
         startActivity(intent)
     }
-    @Suppress("UNUSED_PARAMETER")
+    @Suppress("unused")
     fun quitApp(view: View) {
         finishAffinity() // This will finish the current activity and all parent activities, effectively closing the app
     }

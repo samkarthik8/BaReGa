@@ -9,4 +9,9 @@
     <string name="high_score_column1">NAME</string>
     <string name="high_score_column2">LEVEL</string>
     <string name="high_score_column3">SCORE</string>
+    <string name="questionColorText">QUESTION</string>
+    <string name="answerColorText">ANSWER</string>
+    <string name="scoreText">SCORE</string>
+    <string name="levelText">LEVEL</string>
+    <string name="chancesLeftText">CHANCES LEFT</string>
 </resources>

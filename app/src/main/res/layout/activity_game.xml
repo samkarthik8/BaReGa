@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:background="@color/button_color"
         android:gravity="center"
-        android:text="QUESTION"
+        android:text="@string/questionColorText"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
         android:layout_height="0dp"
         android:background="@android:color/holo_purple"
         android:gravity="center"
-        android:text="ANSWER"
+        android:text="@string/answerColorText"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/blackSection"
@@ -83,7 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="start"
-            android:text="SCORE"
+            android:text="@string/scoreText"
             android:textColor="@android:color/holo_orange_light" />
         <!-- Level TextView -->
         <TextView
@@ -91,7 +91,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="top|center_horizontal"
-            android:text="LEVEL"
+            android:text="@string/levelText"
             android:textColor="@android:color/holo_orange_light" />
         <!-- Chances Left TextView -->
         <TextView
@@ -99,7 +99,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="end"
-            android:text="CHANCES LEFT"
+            android:text="@string/chancesLeftText"
             android:textColor="@android:color/holo_orange_light" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

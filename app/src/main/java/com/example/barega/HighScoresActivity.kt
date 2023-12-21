@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "RedundantSuppression")
 
 package com.example.barega
 
@@ -92,7 +92,7 @@ class HighScoresActivity : AppCompatActivity() {
             setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
     }
-    @Suppress("UNUSED_PARAMETER")
+    @Suppress("unused")
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
