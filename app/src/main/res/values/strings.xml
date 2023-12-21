@@ -14,4 +14,7 @@
     <string name="scoreText">SCORE</string>
     <string name="levelText">LEVEL</string>
     <string name="chancesLeftText">CHANCES LEFT</string>
+    <string name="dummy_chances_left">30</string>
+    <string name="dummy_level">1</string>
+    <string name="dummy_score">5481</string>
 </resources>

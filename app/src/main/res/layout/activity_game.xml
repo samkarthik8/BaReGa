@@ -109,17 +109,17 @@
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="start"
-                android:text="5481" />
+                android:text="@string/dummy_score" />
             <!-- Level TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
-                android:text="1" />
+                android:text="@string/dummy_level" />
             <!-- Chances Left TextView -->
             <TextView
                 style="@style/style_score_section_value"
                 android:gravity="end"
-                android:text="30" />
+                android:text="@string/dummy_chances_left" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
