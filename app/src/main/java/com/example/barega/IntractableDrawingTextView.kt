@@ -37,8 +37,14 @@ class IntractableDrawingTextView : AppCompatTextView {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw the dot on the canvas
-        canvas?.drawCircle(dotX, dotY, dotRadius, dotPaint)
+        canvas.drawCircle(dotX, dotY, dotRadius, dotPaint)
     }
+    // Create a map to store color values based on resource IDs
+    private val colorMap: Map<String, Int> = mapOf(
+        "com.example.barega:id/redBar" to Color.GREEN,
+        "com.example.barega:id/blueBar" to Color.RED,
+        "com.example.barega:id/greenBar" to Color.BLUE,
+    )
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {
@@ -50,8 +56,11 @@ class IntractableDrawingTextView : AppCompatTextView {
                 // Get the ID of the clicked view
                 val resourceId = resources.getResourceName(id)
 
-                // Print the ID
-                println("Clicked View ID: $resourceId")
+                // Get the color based on the resourceId
+                val dotColor = colorMap[resourceId] ?: Color.BLACK
+
+                // Set dotPaint.color to the selected color
+                dotPaint.color = dotColor
 
                 // Invalidate the view to trigger a redraw
                 invalidate()
@@ -60,6 +69,15 @@ class IntractableDrawingTextView : AppCompatTextView {
 
             else -> return super.onTouchEvent(event)
         }
+    }
+
+    override fun performClick(): Boolean {
+        // Handle the click event here
+
+        // Call super.performClick() as recommended
+        super.performClick()
+
+        return true
     }
 
 }

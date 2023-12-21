@@ -60,7 +60,7 @@ object Utils {
         )
     }
 
-    fun getRandomRGBValues(): Int {
+    private fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
     }
 
