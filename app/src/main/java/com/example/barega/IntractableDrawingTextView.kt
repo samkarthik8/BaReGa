@@ -123,12 +123,10 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-
         Utils.updateChancesLeft(
             context,
             "chancesLeft",
         )
-
         Utils.setTextViewTextColor(
             context,
             "answerColorSection",
