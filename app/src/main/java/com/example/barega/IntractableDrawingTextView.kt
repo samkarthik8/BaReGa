@@ -123,6 +123,19 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
+
+        Utils.updateChancesLeft(
+            context,
+            "chancesLeft",
+        )
+
+        Utils.setTextViewTextColor(
+            context,
+            "answerColorSection",
+            answerTextRed,
+            answerTextGreen,
+            answerTextBlue
+        )
         // Call super.performClick() to maintain default behavior
         super.performClick()
         return true

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
@@ -77,6 +78,23 @@ object Utils {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
         textView?.setBackgroundColor(Color.rgb(red, green, blue))
+    }
+    @SuppressLint("DiscouragedApi")
+
+    fun updateChancesLeft(context: Context, textViewId: String) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                var currentChancesLeft = it.text.toString().toInt()
+                currentChancesLeft--
+                it.text = currentChancesLeft.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("updateChancesLeft", "NumberFormatException: ${e.message}")
+            }
+        }
     }
 
     private fun getRandomRGBValues(): Int {
