@@ -3,6 +3,7 @@ package com.example.barega
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
@@ -35,7 +36,7 @@ object Utils {
         textView.setTextColor(textColor)
     }
     @SuppressLint("DiscouragedApi")
-    fun setTextViewColorBasedOnCoordinates(
+    fun setAnswerColor(
         context: Context,
         textViewId: String,
         red: Int,
@@ -44,9 +45,10 @@ object Utils {
     ) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as AppCompatActivity).findViewById<TextView>(resourceId)
-        val textColor = Color.rgb(red, green, blue)
-        textView.setTextColor(textColor)
+        val backgroundColor = Color.rgb(red, green, blue)
+        textView.setBackgroundColor(backgroundColor)
     }
+
     fun setLevelQuestionColor(
         context: Context,
     ) {
@@ -72,10 +74,40 @@ object Utils {
         )
     }
 
+    fun setCurrentRGBColors(context: Context, textViewId: String, red: Int, green: Int, blue: Int) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
 
+        textView?.let {
+            // Set the text color based on provided RGB values
+            it.setBackgroundColor(Color.rgb(red, green, blue))
+        }
+    }
 
     private fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
+    }
+
+    fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+        // Default RGB values
+        var red = 0
+        var green = 0
+        var blue = 0
+
+        textView?.let {
+            val background = it.background
+
+            if (background is ColorDrawable) {
+                val currentColor = background.color
+                red = Color.red(currentColor)
+                green = Color.green(currentColor)
+                blue = Color.blue(currentColor)
+            }
+        }
+
+        return Triple(red, green, blue)
     }
 
     fun setInitialBarColors(

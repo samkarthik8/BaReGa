@@ -8,7 +8,6 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.ContentProviderCompat.requireContext
 
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
@@ -79,6 +78,8 @@ class IntractableDrawingTextView : AppCompatTextView {
         var red = 0
         var green = 0
         var blue = 0
+        var (currentRed, currentGreen, currentBlue) =
+            Utils.getCurrentRGBBackgroundColor(context, "answerColorSection")
         Log.d("Resource Id", "resourceId clicked is $resourceId")
         // Get the click position
         val clickY = dotY
@@ -89,19 +90,29 @@ class IntractableDrawingTextView : AppCompatTextView {
         if (resourceId.contains("blue")) {
             // Calculate RGB values based on the Y coordinate
             blue = ((maxY - clickY) / maxY * 255).toInt()
+            currentBlue = blue
         }
         if (resourceId.contains("red")) {
             // Calculate RGB values based on the Y coordinate
             red = ((maxY - clickY) / maxY * 255).toInt()
+            currentRed = red
         }
         if (resourceId.contains("green")) {
             // Calculate RGB values based on the Y coordinate
             green = ((maxY - clickY) / maxY * 255).toInt()
+            currentGreen = green
         }
         // Set the background color based on RGB values
         setBackgroundColor(Color.rgb(red, green, blue))
         // Set the background color based on the Y coordinate
-        Utils.setTextViewColorBasedOnCoordinates(context, "answerColorSection", red, green, blue)
+//        Utils.setAnswerColor(context, "answerColorSection", red, green, blue)
+        Utils.setCurrentRGBColors(
+            context,
+            "answerColorSection",
+            currentRed,
+            currentGreen,
+            currentBlue
+        )
         // Call super.performClick() to maintain default behavior
         super.performClick()
 
