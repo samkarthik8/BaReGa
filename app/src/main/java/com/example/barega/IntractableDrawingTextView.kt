@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContentProviderCompat.requireContext
 
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
@@ -100,6 +101,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         // Set the background color based on RGB values
         setBackgroundColor(Color.rgb(red, green, blue))
         // Set the background color based on the Y coordinate
+        Utils.setTextViewColorBasedOnCoordinates(context, "answerColorSection", red, green, blue)
         // Call super.performClick() to maintain default behavior
         super.performClick()
 
