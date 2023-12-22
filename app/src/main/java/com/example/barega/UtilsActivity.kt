@@ -76,7 +76,6 @@ object Utils {
     fun setCurrentRGBColors(context: Context, textViewId: String, red: Int, green: Int, blue: Int) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.setBackgroundColor(Color.rgb(red, green, blue))
     }
 
@@ -91,7 +90,6 @@ object Utils {
         var red = 0
         var green = 0
         var blue = 0
-
         textView?.let {
             val background = it.background
 
@@ -102,7 +100,6 @@ object Utils {
                 blue = Color.blue(currentColor)
             }
         }
-
         return Triple(red, green, blue)
     }
 

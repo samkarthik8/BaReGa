@@ -113,9 +113,18 @@ class IntractableDrawingTextView : AppCompatTextView {
             currentGreen,
             currentBlue
         )
+        val answerTextRed = 255 - currentRed
+        val answerTextGreen = 255 - currentGreen
+        val answerTextBlue = 255 - currentBlue
+        Utils.setTextViewTextColor(
+            context,
+            "answerColorSection",
+            answerTextRed,
+            answerTextGreen,
+            answerTextBlue
+        )
         // Call super.performClick() to maintain default behavior
         super.performClick()
-
         return true
     }
 }
