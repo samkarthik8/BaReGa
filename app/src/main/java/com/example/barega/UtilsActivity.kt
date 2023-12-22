@@ -35,20 +35,19 @@ object Utils {
         val textColor = Color.rgb(red, green, blue)
         textView.setTextColor(textColor)
     }
-    @SuppressLint("DiscouragedApi")
-    fun setAnswerColor(
-        context: Context,
-        textViewId: String,
-        red: Int,
-        green: Int,
-        blue: Int
-    ) {
-        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
-        val textView = (context as AppCompatActivity).findViewById<TextView>(resourceId)
-        val backgroundColor = Color.rgb(red, green, blue)
-        textView.setBackgroundColor(backgroundColor)
-    }
-
+    //    @SuppressLint("DiscouragedApi")
+//    fun setAnswerColor(
+//        context: Context,
+//        textViewId: String,
+//        red: Int,
+//        green: Int,
+//        blue: Int
+//    ) {
+//        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+//        val textView = (context as AppCompatActivity).findViewById<TextView>(resourceId)
+//        val backgroundColor = Color.rgb(red, green, blue)
+//        textView.setBackgroundColor(backgroundColor)
+//    }
     fun setLevelQuestionColor(
         context: Context,
     ) {
@@ -73,21 +72,18 @@ object Utils {
             questionTextBlue
         )
     }
-
+    @SuppressLint("DiscouragedApi")
     fun setCurrentRGBColors(context: Context, textViewId: String, red: Int, green: Int, blue: Int) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
 
-        textView?.let {
-            // Set the text color based on provided RGB values
-            it.setBackgroundColor(Color.rgb(red, green, blue))
-        }
+        textView?.setBackgroundColor(Color.rgb(red, green, blue))
     }
 
     private fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
     }
-
+    @SuppressLint("DiscouragedApi")
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
