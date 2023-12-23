@@ -158,6 +158,10 @@ class IntractableDrawingTextView : AppCompatTextView {
             if (fragmentManager != null) {
                 val levelPassedDialog = LevelPassedDialogFragment()
                 levelPassedDialog.show(fragmentManager, "levelPassedDialog")
+                Utils.resetChancesLeft(
+                    context,
+                    "chancesLeft",
+                )
             }
         }
     }
