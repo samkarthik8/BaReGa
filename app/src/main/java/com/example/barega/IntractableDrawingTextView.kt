@@ -76,9 +76,11 @@ class IntractableDrawingTextView : AppCompatTextView {
             else -> return super.onTouchEvent(event)
         }
     }
+
     override fun performClick(): Boolean {
         return super.performClick()
     }
+
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -172,6 +174,5 @@ class IntractableDrawingTextView : AppCompatTextView {
             }
         }
         performClick()
-
     }
 }
