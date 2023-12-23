@@ -1,5 +1,6 @@
 package com.example.barega
 
+import LevelPassedDialogFragment
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -116,6 +117,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         val answerTextRed = 255 - currentRed
         val answerTextGreen = 255 - currentGreen
         val answerTextBlue = 255 - currentBlue
+        var levelCleared = false
         Utils.setTextViewTextColor(
             context,
             "answerColorSection",
@@ -134,6 +136,12 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
+
+        levelCleared = Utils.checkLevelCleared(context)
+        if (levelCleared) {
+            val levelPassedDialog = LevelPassedDialogFragment()
+            levelPassedDialog.show(childFragmentManager, "levelPassedDialog")
+        }
         // Call super.performClick() to maintain default behavior
         super.performClick()
         return true

@@ -5,7 +5,9 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
+import android.view.Gravity
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
@@ -36,19 +38,7 @@ object Utils {
         val textColor = Color.rgb(red, green, blue)
         textView.setTextColor(textColor)
     }
-    //    @SuppressLint("DiscouragedApi")
-//    fun setAnswerColor(
-//        context: Context,
-//        textViewId: String,
-//        red: Int,
-//        green: Int,
-//        blue: Int
-//    ) {
-//        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
-//        val textView = (context as AppCompatActivity).findViewById<TextView>(resourceId)
-//        val backgroundColor = Color.rgb(red, green, blue)
-//        textView.setBackgroundColor(backgroundColor)
-//    }
+
     fun setLevelQuestionColor(
         context: Context,
     ) {
@@ -80,7 +70,6 @@ object Utils {
         textView?.setBackgroundColor(Color.rgb(red, green, blue))
     }
     @SuppressLint("DiscouragedApi")
-
     fun updateChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -99,6 +88,31 @@ object Utils {
 
     private fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
+    }
+
+    fun checkLevelCleared(context: Context): Boolean {
+        var levelCleared = false
+        var (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
+            getCurrentRGBBackgroundColor(context, "questionColorSection")
+        var (currentAnswerRed, currentAnswerGreen, currentAnswerBlue) =
+            getCurrentRGBBackgroundColor(context, "answerColorSection")
+        val redDifference = Math.abs(currentQuestionRed - currentAnswerRed)
+        // Check if the difference is less than 50
+        levelCleared = redDifference < 50
+        return levelCleared
+    }
+
+    fun showToast(context: Context, message: String) {
+        val toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+        val textView = TextView(context)
+        // Set TextView properties
+        textView.text = message
+        textView.textSize = 20f
+        textView.gravity = Gravity.CENTER
+        // Add TextView to the Toast layout
+        toast.view = textView
+        // Show the toast
+        toast.show()
     }
     @SuppressLint("DiscouragedApi")
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
