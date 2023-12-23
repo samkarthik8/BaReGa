@@ -68,13 +68,17 @@ class IntractableDrawingTextView : AppCompatTextView {
                 invalidate()
                 // Call your custom click handling logic
                 handleCustomClick()
+                performClick()
+
                 return true
             }
 
             else -> return super.onTouchEvent(event)
         }
     }
-
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -153,13 +157,11 @@ class IntractableDrawingTextView : AppCompatTextView {
         )
         val levelCleared: Boolean = Utils.checkLevelCleared(context, 50)
 // ...
-
         if (levelCleared) {
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
                 val levelPassedDialog = LevelPassedDialogFragment()
                 levelPassedDialog.show(fragmentManager, "levelPassedDialog")
-
                 // Use a Handler to dismiss the dialog after a delay (1 second)
                 Utils.resetChancesLeft(context, "chancesLeft")
                 Utils.updateLevel(context, "currentLevel")
@@ -169,6 +171,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                 }, 1000)
             }
         }
+        performClick()
 
     }
 }
