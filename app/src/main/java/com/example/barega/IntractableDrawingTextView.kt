@@ -2,6 +2,7 @@ package com.example.barega
 
 import LevelPassedDialogFragment
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -9,6 +10,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
@@ -62,8 +65,8 @@ class IntractableDrawingTextView : AppCompatTextView {
                 dotPaint.color = dotColor
                 // Invalidate the view to trigger a redraw
                 invalidate()
-                // Call performClick() when a click is detected
-                performClick()
+                // Call your custom click handling logic
+                handleCustomClick()
                 return true
             }
 
@@ -71,7 +74,19 @@ class IntractableDrawingTextView : AppCompatTextView {
         }
     }
 
-    override fun performClick(): Boolean {
+    private fun findFragmentManager(context: Context): FragmentManager? {
+        var currentContext = context
+        while (currentContext is ContextWrapper) {
+            if (currentContext is FragmentActivity) {
+                return currentContext.supportFragmentManager
+            }
+            currentContext = currentContext.baseContext
+        }
+        return null
+    }
+
+    fun handleCustomClick() {
+        super.performClick()
         // Handle the click event here
         // You can also call super.performClick() if needed
         // Get the ID of the clicked view
@@ -139,11 +154,11 @@ class IntractableDrawingTextView : AppCompatTextView {
 
         levelCleared = Utils.checkLevelCleared(context)
         if (levelCleared) {
-            val levelPassedDialog = LevelPassedDialogFragment()
-            levelPassedDialog.show(childFragmentManager, "levelPassedDialog")
+            val fragmentManager = findFragmentManager(context)
+            if (fragmentManager != null) {
+                val levelPassedDialog = LevelPassedDialogFragment()
+                levelPassedDialog.show(fragmentManager, "levelPassedDialog")
+            }
         }
-        // Call super.performClick() to maintain default behavior
-        super.performClick()
-        return true
     }
 }
