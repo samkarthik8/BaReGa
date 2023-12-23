@@ -85,7 +85,6 @@ object Utils {
             }
         }
     }
-
     @SuppressLint("DiscouragedApi")
     fun resetChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
@@ -93,8 +92,8 @@ object Utils {
 
         textView?.let {
             try {
-                var currentChancesLeft = it.text.toString().toInt()
-                currentChancesLeft=30
+                var currentChancesLeft: Int
+                currentChancesLeft = 30
                 it.text = currentChancesLeft.toString()
             } catch (e: NumberFormatException) {
                 // Handle the case where the text is not a valid integer
@@ -107,15 +106,18 @@ object Utils {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
     }
 
-    fun checkLevelCleared(context: Context): Boolean {
-        var levelCleared = false
+    fun checkLevelCleared(context: Context, difficulty: Int): Boolean {
+        var levelCleared: Boolean
         var (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
             getCurrentRGBBackgroundColor(context, "questionColorSection")
         var (currentAnswerRed, currentAnswerGreen, currentAnswerBlue) =
             getCurrentRGBBackgroundColor(context, "answerColorSection")
         val redDifference = Math.abs(currentQuestionRed - currentAnswerRed)
+        val blueDifference = Math.abs(currentQuestionBlue - currentAnswerBlue)
+        val greenDifference = Math.abs(currentQuestionGreen - currentAnswerGreen)
         // Check if the difference is less than 50
-        levelCleared = redDifference < 50
+        levelCleared =
+            redDifference < difficulty && greenDifference < difficulty && blueDifference < difficulty
         return levelCleared
     }
 
