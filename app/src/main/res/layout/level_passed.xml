@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange"
-
     android:padding="32dp">
 
     <TextView
@@ -14,7 +13,6 @@
         android:layout_centerVertical="true"
         android:text="@string/level_cleared_message"
         android:textColor="@android:color/white"
-
         android:textSize="30sp"
         android:textStyle="bold" />
 </RelativeLayout>
