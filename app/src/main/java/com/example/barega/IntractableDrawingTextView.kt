@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
@@ -73,8 +74,6 @@ class IntractableDrawingTextView : AppCompatTextView {
             else -> return super.onTouchEvent(event)
         }
     }
-
-
 
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
@@ -153,22 +152,20 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextBlue
         )
         val levelCleared: Boolean = Utils.checkLevelCleared(context, 50)
+// ...
+
         if (levelCleared) {
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
                 val levelPassedDialog = LevelPassedDialogFragment()
                 levelPassedDialog.show(fragmentManager, "levelPassedDialog")
+
                 // Use a Handler to dismiss the dialog after a delay (1 second)
-                Utils.resetChancesLeft(
-                    context,
-                    "chancesLeft",
-                )
-                Utils.updateLevel(
-                    context,
-                    "currentLevel",
-                )
-                Handler().postDelayed({
-                    levelPassedDialog.dismiss()
+                Utils.resetChancesLeft(context, "chancesLeft")
+                Utils.updateLevel(context, "currentLevel")
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    levelPassedDialog.dismissAllowingStateLoss()
                 }, 1000)
             }
         }
