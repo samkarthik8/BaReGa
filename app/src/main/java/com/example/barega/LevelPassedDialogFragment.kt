@@ -1,9 +1,10 @@
+package com.example.barega
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.example.barega.R
 
 class LevelPassedDialogFragment : DialogFragment() {
     override fun onCreateView(
@@ -11,10 +12,5 @@ class LevelPassedDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.level_passed, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // You can perform additional setup here if needed
     }
 }

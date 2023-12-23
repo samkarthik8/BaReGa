@@ -106,11 +106,13 @@
             android:orientation="horizontal">
             <!-- Score TextView -->
             <TextView
+                android:id="@+id/currentScore"
                 style="@style/style_score_section_value"
                 android:gravity="start"
                 android:text="@string/dummy_score" />
             <!-- Level TextView -->
             <TextView
+                android:id="@+id/currentLevel"
                 style="@style/style_score_section_value"
                 android:gravity="top|center_horizontal"
                 android:text="@string/dummy_level" />

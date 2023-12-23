@@ -1,11 +1,11 @@
 package com.example.barega
 
-import LevelPassedDialogFragment
 import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.os.Handler
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
@@ -74,6 +74,8 @@ class IntractableDrawingTextView : AppCompatTextView {
         }
     }
 
+
+
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -85,7 +87,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         return null
     }
 
-    fun handleCustomClick() {
+    private fun handleCustomClick() {
         super.performClick()
         // Handle the click event here
         // You can also call super.performClick() if needed
@@ -132,7 +134,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         val answerTextRed = 255 - currentRed
         val answerTextGreen = 255 - currentGreen
         val answerTextBlue = 255 - currentBlue
-        var levelCleared = false
         Utils.setTextViewTextColor(
             context,
             "answerColorSection",
@@ -151,18 +152,26 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-
-        levelCleared = Utils.checkLevelCleared(context, 50)
+        val levelCleared: Boolean = Utils.checkLevelCleared(context, 50)
         if (levelCleared) {
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
                 val levelPassedDialog = LevelPassedDialogFragment()
                 levelPassedDialog.show(fragmentManager, "levelPassedDialog")
+                // Use a Handler to dismiss the dialog after a delay (1 second)
                 Utils.resetChancesLeft(
                     context,
                     "chancesLeft",
                 )
+                Utils.updateLevel(
+                    context,
+                    "currentLevel",
+                )
+                Handler().postDelayed({
+                    levelPassedDialog.dismiss()
+                }, 1000)
             }
         }
+
     }
 }
