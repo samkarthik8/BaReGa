@@ -14,8 +14,8 @@
     <string name="scoreText">SCORE</string>
     <string name="levelText">LEVEL</string>
     <string name="chancesLeftText">CHANCES LEFT</string>
-    <string name="dummy_chances_left">30</string>
-    <string name="dummy_level">1</string>
+    <string name="initial_chances_left">30</string>
+    <string name="initial_level">1</string>
     <string name="initial_score">0</string>
     <string name="level_cleared_message">LEVEL CLEARED</string>
 </resources>

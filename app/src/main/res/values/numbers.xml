@@ -4,4 +4,5 @@
     <dimen name="button_margin">30dp</dimen>
     <dimen name="button_padding">20dp</dimen>
     <dimen name="menu_padding">20dp</dimen>
+    <integer name="chances_for_each_level">30</integer>
 </resources>

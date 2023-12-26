@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentManager
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
     private var dotY: Float = 0f
-    private var chancesLeft: Int = 30
+    private var chancesLeft: Int = resources.getInteger(R.integer.chances_for_each_level)
     private val dotRadius = 10f
     private val dotPaint = Paint()
 
@@ -171,7 +171,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                 Utils.resetChancesLeft(context, "chancesLeft")
                 Utils.updateLevel(context, "currentLevel")
                 Utils.updateScore(context, "currentScore", chancesLeft)
-                chancesLeft = 30
+                chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
                 Handler(Looper.getMainLooper()).postDelayed({
                     levelPassedDialog.dismissAllowingStateLoss()
                 }, 1000)
