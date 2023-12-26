@@ -20,4 +20,5 @@
     <string name="level_cleared_message">LEVEL CLEARED</string>
     <string name="level_failed_message">LEVEL FAILED</string>
     <string name="your_score_is">Your score is</string>
+    <string name="ok_button_text">OK</string>
 </resources>

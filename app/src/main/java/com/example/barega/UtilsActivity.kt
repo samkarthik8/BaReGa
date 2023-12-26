@@ -147,6 +147,21 @@ object Utils {
             }
         }
     }
+    @SuppressLint("DiscouragedApi")
+    fun resetScore(context: Context, textViewId: String) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                val currentScore = 0
+                it.text = currentScore.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("updateScore", "NumberFormatException: ${e.message}")
+            }
+        }
+    }
 
     private fun getRandomRGBValues(): Int {
         return Random.nextInt(256) // Generates a random number between 0 (inclusive) and 256 (exclusive)
