@@ -177,6 +177,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                     levelPassedDialog.dismissAllowingStateLoss()
                 }, 1000)
             }
+            Utils.setLevelQuestionColor(context)
         }
         if (chancesLeft < 1) {
             val fragmentManager = findFragmentManager(context)
@@ -192,6 +193,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                     levelFailedDialog.dismissAllowingStateLoss()
                 }, 3000)
             }
+            Utils.setLevelQuestionColor(context)
         }
         performClick()
     }
