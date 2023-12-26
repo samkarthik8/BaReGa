@@ -78,6 +78,8 @@ class IntractableDrawingTextView : AppCompatTextView {
     }
 
     override fun performClick(): Boolean {
+        Log.d("IntractableDrawingTextView", "In super")
+
         return super.performClick()
     }
 
