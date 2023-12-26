@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.abs
 import kotlin.random.Random
 
+@SuppressLint("DiscouragedApi")
 object Utils {
-    @SuppressLint("DiscouragedApi")
-    fun setTextViewBackgroundColor(
+    private fun setTextViewBackgroundColor(
         context: Context,
         textViewId: String,
         red: Int,
@@ -24,7 +24,7 @@ object Utils {
         val backgroundColor = Color.rgb(red, green, blue)
         textView.setBackgroundColor(backgroundColor)
     }
-    @SuppressLint("DiscouragedApi")
+
     fun setTextViewTextColor(
         context: Context,
         textViewId: String,
@@ -62,13 +62,13 @@ object Utils {
             questionTextBlue
         )
     }
-    @SuppressLint("DiscouragedApi")
+
     fun setCurrentRGBColors(context: Context, textViewId: String, red: Int, green: Int, blue: Int) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
         textView?.setBackgroundColor(Color.rgb(red, green, blue))
     }
-    @SuppressLint("DiscouragedApi")
+
     fun updateChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -84,7 +84,7 @@ object Utils {
             }
         }
     }
-    @SuppressLint("DiscouragedApi")
+
     fun resetChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -100,7 +100,7 @@ object Utils {
             }
         }
     }
-    @SuppressLint("DiscouragedApi")
+
     fun resetLevel(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -115,7 +115,7 @@ object Utils {
             }
         }
     }
-    @SuppressLint("DiscouragedApi")
+
     fun updateLevel(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -131,7 +131,7 @@ object Utils {
             }
         }
     }
-    @SuppressLint("DiscouragedApi")
+
     fun updateScore(context: Context, textViewId: String, chancesLeft: Int) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -147,7 +147,7 @@ object Utils {
             }
         }
     }
-    @SuppressLint("DiscouragedApi")
+
     fun resetScore(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
@@ -181,7 +181,7 @@ object Utils {
             redDifference < difficulty && greenDifference < difficulty && blueDifference < difficulty
         return levelCleared
     }
-    @SuppressLint("DiscouragedApi")
+
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
