@@ -124,7 +124,7 @@ object Utils {
         textView?.let {
             try {
                 var currentScore = it.text.toString().toInt()
-                currentScore += chancesLeft * 6
+                currentScore += chancesLeft * context.resources.getInteger(R.integer.value_for_each_chance)
                 it.text = currentScore.toString()
             } catch (e: NumberFormatException) {
                 // Handle the case where the text is not a valid integer
