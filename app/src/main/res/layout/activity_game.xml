@@ -109,7 +109,7 @@
                 android:id="@+id/currentScore"
                 style="@style/style_score_section_value"
                 android:gravity="start"
-                android:text="@string/dummy_score" />
+                android:text="@string/initial_score" />
             <!-- Level TextView -->
             <TextView
                 android:id="@+id/currentLevel"

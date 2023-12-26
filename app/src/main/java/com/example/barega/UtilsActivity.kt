@@ -106,12 +106,28 @@ object Utils {
 
         textView?.let {
             try {
-                var currentChancesLeft = it.text.toString().toInt()
-                currentChancesLeft++
-                it.text = currentChancesLeft.toString()
+                var currentLevel = it.text.toString().toInt()
+                currentLevel++
+                it.text = currentLevel.toString()
             } catch (e: NumberFormatException) {
                 // Handle the case where the text is not a valid integer
                 Log.e("updateLevel", "NumberFormatException: ${e.message}")
+            }
+        }
+    }
+    @SuppressLint("DiscouragedApi")
+    fun updateScore(context: Context, textViewId: String, chancesLeft: Int) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                var currentScore = it.text.toString().toInt()
+                currentScore = currentScore + chancesLeft * 3
+                it.text = currentScore.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("updateScore", "NumberFormatException: ${e.message}")
             }
         }
     }

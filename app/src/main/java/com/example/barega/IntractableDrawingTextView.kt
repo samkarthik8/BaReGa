@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
     private var dotY: Float = 0f
+    private var chancesLeft: Int = 30
     private val dotRadius = 10f
     private val dotPaint = Paint()
 
@@ -159,6 +160,7 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
+        chancesLeft--
         val levelCleared: Boolean = Utils.checkLevelCleared(context, 100)
         if (levelCleared) {
             val fragmentManager = findFragmentManager(context)
@@ -168,7 +170,8 @@ class IntractableDrawingTextView : AppCompatTextView {
                 // Use a Handler to dismiss the dialog after a delay (1 second)
                 Utils.resetChancesLeft(context, "chancesLeft")
                 Utils.updateLevel(context, "currentLevel")
-
+                Utils.updateScore(context, "currentScore", chancesLeft)
+                chancesLeft = 30
                 Handler(Looper.getMainLooper()).postDelayed({
                     levelPassedDialog.dismissAllowingStateLoss()
                 }, 1000)
