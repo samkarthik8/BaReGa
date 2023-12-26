@@ -1,8 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/orange"
-    android:padding="32dp">
+    style="@style/style_level_cleared">
 
     <TextView
         android:id="@+id/levelCleared"
