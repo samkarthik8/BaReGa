@@ -161,7 +161,8 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextBlue
         )
         chancesLeft--
-        val levelCleared: Boolean = Utils.checkLevelCleared(context, 100)
+        val levelCleared: Boolean =
+            Utils.checkLevelCleared(context, resources.getInteger(R.integer.difficulty))
         if (levelCleared) {
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
