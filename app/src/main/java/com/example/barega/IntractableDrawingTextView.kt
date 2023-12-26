@@ -178,6 +178,21 @@ class IntractableDrawingTextView : AppCompatTextView {
                 }, 1000)
             }
         }
+        if (chancesLeft < 1) {
+            val fragmentManager = findFragmentManager(context)
+            if (fragmentManager != null) {
+                val levelFailedDialog = LevelFailedDialogFragment()
+                levelFailedDialog.show(fragmentManager, "levelFailedDialog")
+                // Use a Handler to dismiss the dialog after a delay (1 second)
+                Utils.resetChancesLeft(context, "chancesLeft")
+                Utils.resetLevel(context, "currentLevel")
+                Utils.updateScore(context, "currentScore", chancesLeft)
+                chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    levelFailedDialog.dismissAllowingStateLoss()
+                }, 3000)
+            }
+        }
         performClick()
     }
 }

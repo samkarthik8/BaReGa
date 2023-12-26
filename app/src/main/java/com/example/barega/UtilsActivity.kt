@@ -101,6 +101,21 @@ object Utils {
         }
     }
     @SuppressLint("DiscouragedApi")
+    fun resetLevel(context: Context, textViewId: String) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                val currentLevel = 1
+                it.text = currentLevel.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("updateLevel", "NumberFormatException: ${e.message}")
+            }
+        }
+    }
+    @SuppressLint("DiscouragedApi")
     fun updateLevel(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
