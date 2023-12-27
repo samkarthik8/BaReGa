@@ -91,7 +91,7 @@ object Utils {
 
         textView?.let {
             try {
-                var currentChancesLeft =
+                val currentChancesLeft =
                     context.resources.getInteger(R.integer.chances_for_each_level)
                 it.text = currentChancesLeft.toString()
             } catch (e: NumberFormatException) {
