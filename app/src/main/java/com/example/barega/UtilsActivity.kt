@@ -164,6 +164,20 @@ object Utils {
         }
     }
 
+    fun updateFinalScore(context: Context, textViewId: String, currentScore: Int) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                it.text = currentScore.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("updateFinalScore", "NumberFormatException: ${e.message}")
+            }
+        }
+    }
+
     fun resetScore(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
