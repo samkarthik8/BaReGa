@@ -167,6 +167,7 @@ object Utils {
     fun updateFinalScore(context: Context, textViewId: String, currentScore: Int) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+        Log.e("textView", "textView: ${textView}")
 
         textView?.let {
             try {
