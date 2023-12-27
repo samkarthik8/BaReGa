@@ -171,7 +171,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                 // Use a Handler to dismiss the dialog after a delay (1 second)
                 Utils.resetChancesLeft(context, "chancesLeft")
                 Utils.updateLevel(context, "currentLevel")
-                Utils.updateScore(context, "currentScore", chancesLeft)
+                currentScoreValue = Utils.updateScore(context, "currentScore", chancesLeft)
                 chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
                 Handler(Looper.getMainLooper()).postDelayed({
                     levelPassedDialog.dismissAllowingStateLoss()
