@@ -148,7 +148,7 @@ object Utils {
         }
     }
 
-    fun updateScore(context: Context, textViewId: String, chancesLeft: Int) {
+    fun updateScore(context: Context, textViewId: String, chancesLeft: Int): Int {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
 
@@ -157,26 +157,14 @@ object Utils {
                 var currentScore = it.text.toString().toInt()
                 currentScore += chancesLeft * context.resources.getInteger(R.integer.value_for_each_chance)
                 it.text = currentScore.toString()
+                return currentScore
             } catch (e: NumberFormatException) {
                 // Handle the case where the text is not a valid integer
                 Log.e("updateScore", "NumberFormatException: ${e.message}")
             }
         }
-    }
-
-    fun updateFinalScore(context: Context, textViewId: String, currentScore: Int) {
-        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
-        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-        Log.e("textView", "textView: ${textView}")
-
-        textView?.let {
-            try {
-                it.text = currentScore.toString()
-            } catch (e: NumberFormatException) {
-                // Handle the case where the text is not a valid integer
-                Log.e("updateFinalScore", "NumberFormatException: ${e.message}")
-            }
-        }
+        // Default value to return in case of an error or if the TextView is not found
+        return 0
     }
 
     fun resetScore(context: Context, textViewId: String) {
