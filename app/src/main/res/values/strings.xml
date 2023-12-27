@@ -16,7 +16,6 @@
     <string name="chancesLeftText">CHANCES LEFT</string>
     <string name="initial_level">1</string>
     <string name="initial_score">0</string>
-    <string name="dummy_score">55</string>
     <string name="level_cleared_message">LEVEL CLEARED</string>
     <string name="level_failed_message">LEVEL FAILED</string>
     <string name="your_score_is">Your score is</string>

@@ -31,7 +31,6 @@
         android:layout_below="@+id/yourScoreIs"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="@string/dummy_score"
         android:textColor="@android:color/white"
         android:textSize="45sp"
         android:textStyle="bold" />
