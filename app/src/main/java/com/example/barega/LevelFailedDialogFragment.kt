@@ -22,6 +22,8 @@ class LevelFailedDialogFragment : DialogFragment() {
             Utils.resetScore(requireContext(), "currentScore")
             dismiss() // Close the dialog
         }
+        // Prevent the dialog from being canceled when touched outside its window
+        dialog?.setCanceledOnTouchOutside(false)
         return view
     }
 }
