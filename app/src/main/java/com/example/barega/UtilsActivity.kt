@@ -85,6 +85,22 @@ object Utils {
         }
     }
 
+    fun setInitialChancesLeft(context: Context, textViewId: String) {
+        val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
+        val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
+
+        textView?.let {
+            try {
+                var currentChancesLeft =
+                    context.resources.getInteger(R.integer.chances_for_each_level)
+                it.text = currentChancesLeft.toString()
+            } catch (e: NumberFormatException) {
+                // Handle the case where the text is not a valid integer
+                Log.e("setInitialChancesLeft", "NumberFormatException: ${e.message}")
+            }
+        }
+    }
+
     fun resetChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
