@@ -15,15 +15,7 @@
     <!-- Back Button at the bottom -->
     <Button
         android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/button_margin"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/button_color"
+        style="@style/style_back_button"
         android:onClick="onBackButtonClick"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:text="@string/back_string" />
 </RelativeLayout>
