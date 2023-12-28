@@ -20,4 +20,5 @@
     <string name="level_failed_message">LEVEL FAILED</string>
     <string name="your_score_is">Your score is</string>
     <string name="ok_button_text">OK</string>
+    <string name="change_player_name_string">CHANGE PLAYER NAME</string>
 </resources>
