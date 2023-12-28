@@ -69,20 +69,23 @@ object Utils {
         textView?.setBackgroundColor(Color.rgb(red, green, blue))
     }
 
-    fun updateChancesLeft(context: Context, textViewId: String) {
+    fun updateChancesLeft(context: Context, textViewId: String): Int {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
 
         textView?.let {
             try {
                 var currentChancesLeft = it.text.toString().toInt()
-                currentChancesLeft--
+                currentChancesLeft = maxOf(0, currentChancesLeft - 1)
                 it.text = currentChancesLeft.toString()
+                return currentChancesLeft
             } catch (e: NumberFormatException) {
                 // Handle the case where the text is not a valid integer
                 Log.e("updateChancesLeft", "NumberFormatException: ${e.message}")
             }
         }
+        // Return a default value (for example, 0) in case of an error
+        return 0
     }
 
     fun setInitialChancesLeft(context: Context, textViewId: String) {

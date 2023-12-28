@@ -149,7 +149,7 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-        Utils.updateChancesLeft(
+        chancesLeft = Utils.updateChancesLeft(
             context,
             "chancesLeft",
         )
@@ -160,7 +160,7 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-        chancesLeft--
+//        chancesLeft--
         val levelCleared: Boolean =
             Utils.checkLevelCleared(context, resources.getInteger(R.integer.difficulty))
         if (levelCleared) {
