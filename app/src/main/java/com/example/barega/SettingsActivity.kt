@@ -3,15 +3,17 @@ package com.example.barega
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import org.json.JSONArray
-import java.io.File
 
 class SettingsActivity : AppCompatActivity() {
+    private val sharedPreferencesSettings = "SettingsPrefsFile"
+    private val defaultPlayerName = "Karthik"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -21,7 +23,10 @@ class SettingsActivity : AppCompatActivity() {
         val alertDialogBuilder = AlertDialog.Builder(this)
         val input = EditText(this)
         // Retrieve the existing player name and set it as the default text
-        val currentName = getCurrentPlayerNameFromJSON()
+        val currentName = getCurrentPlayerNameFromPrefs()
+        if (currentName.isEmpty()) {
+            updatePlayerNameInPrefs(defaultPlayerName)
+        }
         input.setText(currentName)
         // Set the maximum length of the input to 10 characters
         val maxLength = 10
@@ -30,65 +35,46 @@ class SettingsActivity : AppCompatActivity() {
         alertDialogBuilder.setTitle("Change Player Name")
         alertDialogBuilder.setMessage("Enter your new player name:")
         alertDialogBuilder.setView(input)
-        // Set up the positive button action
-        alertDialogBuilder.setPositiveButton("OK") { dialog, which ->
+        // Set up the positive button action with custom listener
+        alertDialogBuilder.setPositiveButton("OK", null) // Set a null listener initially
+        val alertDialog = alertDialogBuilder.create()
+        // Show the dialog
+        alertDialog.show()
+        // Override the positive button's onClick listener
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setOnClickListener {
+            // Check if the new player name meets the minimum length requirement
             val newPlayerName = input.text.toString()
-            updatePlayerName(this, newPlayerName)
+            if (newPlayerName.length >= 3) {
+                updatePlayerNameInPrefs(newPlayerName)
+                alertDialog.dismiss() // Dismiss the dialog when conditions are met
+            } else {
+                // Show a toast or any other feedback indicating the minimum length requirement
+                // In a real application, consider using a Snackbar or a custom Toast for a better user experience
+                Toast.makeText(
+                    this,
+                    "Player name must be at least 3 characters long",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         // Set up the negative button action (optional)
         alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
             // Do nothing or handle cancellation
         }
-
-        alertDialogBuilder.show()
     }
-    // Function to retrieve the current player name from the settings in the assets folder
-    private fun getCurrentPlayerNameFromJSON(): String {
-        try {
-            val jsonSettings: String = applicationContext.assets.open("settings.json")
-                .bufferedReader()
-                .use { it.readText() }
-            // Parse the JSON string
-            val jsonArray = JSONArray(jsonSettings)
-            // Check if there is at least one item in the array
-            if (jsonArray.length() > 0) {
-                // Get the first item in the array
-                val firstItem = jsonArray.getJSONObject(0)
-                // Extract the "currentPlayerName" field
-                return firstItem.optString("currentPlayerName", "")
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return ""
+    // Function to retrieve the current player name from SharedPreferences
+    private fun getCurrentPlayerNameFromPrefs(): String {
+        val prefs: SharedPreferences =
+            getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        return prefs.getString("currentPlayerName", "") ?: ""
     }
-
-    private fun updatePlayerName(context: Context, newPlayerName: String) {
-        try {
-            val settingsFileName = "settings.json"
-            val settingsFile = File(context.filesDir, settingsFileName)
-            // Ensure the directory structure exists
-            settingsFile.parentFile?.mkdirs()
-            // Check if the file exists, and create it if not
-            if (!settingsFile.exists()) {
-                settingsFile.createNewFile()
-                // Initialize the file with an empty JSON array
-                settingsFile.writeText("[]")
-            }
-            // Read the existing JSON data
-            val jsonString = settingsFile.readText()
-            val jsonArray = JSONArray(jsonString)
-            // Update the player name in the first item of the array
-            if (jsonArray.length() > 0) {
-                val firstItem = jsonArray.getJSONObject(0)
-                firstItem.put("currentPlayerName", newPlayerName)
-                // Save the updated JSON array back to the file
-                settingsFile.writeText(jsonArray.toString())
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            // Handle exceptions (e.g., file creation error, JSON parsing error)
-        }
+    // Function to update the player name in SharedPreferences
+    private fun updatePlayerNameInPrefs(newPlayerName: String) {
+        val prefs: SharedPreferences =
+            getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.putString("currentPlayerName", newPlayerName)
+        editor.apply()
     }
     @Suppress("unused")
     fun onBackButtonClick(view: View) {
