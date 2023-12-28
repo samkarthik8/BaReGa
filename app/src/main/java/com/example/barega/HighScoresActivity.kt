@@ -10,8 +10,6 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 class HighScoresActivity : AppCompatActivity() {
     private lateinit var tableLayout: TableLayout
@@ -25,27 +23,13 @@ class HighScoresActivity : AppCompatActivity() {
     }
 
     private fun updateScoresList() {
-        // Read JSON from scores.json file in assets folder
-        val jsonScores: String = try {
-            applicationContext.assets.open("scores.json").bufferedReader().use { it.readText() }
-        } catch (e: Exception) {
-            // Handle exception (e.g., file not found)
-            ""
-        }
-        // Convert JSON string to List<Score>
-        val scoresList = Gson().fromJson<List<Score>>(
-            jsonScores,
-            object : TypeToken<List<Score>>() {}.type
-        )
-        // Save the scores to SharedPreferences
-        scoresManager.saveScores(scoresList)
-        // Retrieve the scores from SharedPreferences
+        // Retrieve the scores from ScoresManager
         val topScores = scoresManager.getTopScores()
         // Add headings to the table
         addHeadingsToTable()
         // Add scores to the table
-        for (score in topScores) {
-            addScoreToTable(score)
+        for (player in topScores) {
+            addScoreToTable(player)
         }
     }
 
@@ -70,11 +54,11 @@ class HighScoresActivity : AppCompatActivity() {
         }
     }
 
-    private fun addScoreToTable(score: Score) {
+    private fun addScoreToTable(player: ScoresManager.Player) {
         val scoreRow = TableRow(this)
-        scoreRow.addView(createScoreTextView(score.playerName))
-        scoreRow.addView(createScoreTextView(score.level.toString()))
-        scoreRow.addView(createScoreTextView(score.scoreValue.toString()))
+        scoreRow.addView(createScoreTextView(player.playerName))
+        scoreRow.addView(createScoreTextView(player.level.toString()))
+        scoreRow.addView(createScoreTextView(player.scoreValue.toString()))
         tableLayout.addView(scoreRow)
     }
 
