@@ -16,16 +16,16 @@ class ScoresManager(context: Context) {
     init {
         // Initialize with hardcoded values initially
         val initialScores = listOf(
-            Player("Aarav", 5, 1200),
-            Player("Karthik", 4, 1000),
-            Player("Arjun", 3, 800),
-            Player("Ishaan", 2, 600),
-            Player("Neha", 1, 400),
-            Player("Kavya", 1, 200),
-            Player("Rohan", 1, 1500),
-            Player("Priya", 1, 500),
-            Player("Aditya", 1, 50),
-            Player("Rahul", 1, 25)
+            Player("Player1", 1, 1),
+            Player("Player2", 1, 2),
+            Player("Player3", 1, 3),
+            Player("Player4", 1, 4),
+            Player("Player5", 1, 5),
+            Player("Player6", 1, 6),
+            Player("Player7", 1, 7),
+            Player("Player8", 1, 8),
+            Player("Player9", 1, 9),
+            Player("Player10", 1, 10)
         )
         saveScores(initialScores)
     }
