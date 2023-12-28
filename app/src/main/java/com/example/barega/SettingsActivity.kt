@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,9 @@ class SettingsActivity : AppCompatActivity() {
         // Retrieve the existing player name and set it as the default text
         val currentName = getCurrentPlayerNameFromJSON()
         input.setText(currentName)
+        // Set the maximum length of the input to 10 characters
+        val maxLength = 10
+        input.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
         // Set up the AlertDialog
         alertDialogBuilder.setTitle("Change Player Name")
         alertDialogBuilder.setMessage("Enter your new player name:")
@@ -33,7 +37,7 @@ class SettingsActivity : AppCompatActivity() {
         }
         // Set up the negative button action (optional)
         alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
-            // Do nothing or handle cancelation
+            // Do nothing or handle cancellation
         }
 
         alertDialogBuilder.show()
