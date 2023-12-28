@@ -1,3 +1,5 @@
+@file:Suppress("unused", "RedundantSuppression")
+
 package com.example.barega
 
 import android.app.AlertDialog
