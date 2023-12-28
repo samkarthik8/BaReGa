@@ -19,9 +19,7 @@ class HighScoresActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_high_scores)
-
         scoresManager = ScoresManager(this)
-
         tableLayout = findViewById(R.id.tableLayoutScores)
         updateScoresList()
     }
