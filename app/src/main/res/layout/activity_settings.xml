@@ -1,9 +1,8 @@
-<!-- res/layout/activity_high_scores.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/style_screen_page_RelativeLayout">
-    <!-- Menu Name -->
+    <!-- App Name -->
     <TextView
-        android:id="@+id/menu_name_text_view"
+        android:id="@+id/app_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/menu_color"
@@ -14,12 +13,19 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
-    <!-- TableLayout for headings and rows -->
-    <TableLayout
-        android:id="@+id/tableLayoutScores"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/menu_name_text_view" />
+    <!-- Button to change player name -->
+    <Button
+        android:id="@+id/changePlayerNameButton"
+        style="@style/style_button_settings_screen"
+        android:onClick="onChangePlayerNameButtonClick"
+        android:text="@string/change_player_name_string" />
+    <!-- Button to toggle sound on or off -->
+    <Button
+        android:id="@+id/toggleSoundButton"
+        style="@style/style_button_settings_screen"
+        android:layout_below="@+id/changePlayerNameButton"
+        android:onClick="onToggleSoundClick"
+        android:text="@string/toggle_sound_off_string" />
     <!-- Back Button at the bottom -->
     <Button
         android:id="@+id/backButton"
