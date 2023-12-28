@@ -26,6 +26,13 @@
         android:layout_below="@+id/changePlayerNameButton"
         android:onClick="onToggleSoundClick"
         android:text="@string/toggle_sound_off_string" />
+    <!-- Button to toggle theme light or dark -->
+    <Button
+        android:id="@+id/toggleThemeButton"
+        style="@style/style_button_settings_screen"
+        android:layout_below="@+id/toggleSoundButton"
+        android:onClick="onToggleThemeClick"
+        android:text="@string/toggle_theme_dark_string" />
     <!-- Back Button at the bottom -->
     <Button
         android:id="@+id/backButton"
