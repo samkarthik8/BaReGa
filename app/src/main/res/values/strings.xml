@@ -25,4 +25,7 @@
     <string name="toggle_sound_off_string">SOUND OFF</string>
     <string name="toggle_theme_light_string">LIGHT THEME</string>
     <string name="toggle_theme_dark_string">DARK THEME</string>
+    <string name="enable_splash_screen_string">ENABLE SPLASH SCREEN</string>
+    <string name="disable_splash_screen_string">DISABLE SPLASH SCREEN</string>
+    <string name="reset_high_scores_string">RESET HIGH SCORES</string>
 </resources>
