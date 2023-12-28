@@ -23,4 +23,6 @@
     <string name="change_player_name_string">CHANGE PLAYER NAME</string>
     <string name="toggle_sound_on_string">SOUND ON</string>
     <string name="toggle_sound_off_string">SOUND OFF</string>
+    <string name="toggle_theme_light_string">LIGHT THEME</string>
+    <string name="toggle_theme_dark_string">DARK THEME</string>
 </resources>
