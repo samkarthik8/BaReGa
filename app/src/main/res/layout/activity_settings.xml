@@ -38,6 +38,20 @@
             android:layout_below="@+id/toggleSoundButton"
             android:onClick="onToggleThemeClick"
             android:text="@string/toggle_theme_dark_string" />
+        <!-- Button to reset high scores -->
+        <Button
+            android:id="@+id/resetHighScoresButton"
+            style="@style/style_button_settings_screen"
+            android:layout_below="@+id/toggleThemeButton"
+            android:onClick="onResetHighScoresClick"
+            android:text="@string/reset_high_scores_string" />
+        <!-- Button to skip splash screen -->
+        <Button
+            android:id="@+id/skipSplashScreenButton"
+            style="@style/style_button_settings_screen"
+            android:layout_below="@+id/resetHighScoresButton"
+            android:onClick="onSkipSplashScreenClick"
+            android:text="@string/disable_splash_screen_string" />
     </RelativeLayout>
     <!-- Back Button at the bottom -->
     <Button
