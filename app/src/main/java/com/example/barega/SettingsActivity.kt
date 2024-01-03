@@ -71,7 +71,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
     // Function to retrieve the current player name from SharedPreferences
-    private fun getCurrentPlayerNameFromPrefs(): String {
+    fun getCurrentPlayerNameFromPrefs(): String {
         val prefs: SharedPreferences =
             getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
         return prefs.getString("currentPlayerName", "") ?: ""
