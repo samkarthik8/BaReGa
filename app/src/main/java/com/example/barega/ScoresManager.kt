@@ -20,10 +20,10 @@ class ScoresManager(context: Context) {
             Player("Player2", 1, 2),
             Player("Player3", 1, 3),
             Player("Player4", 1, 4),
-            Player("Player5", 1, 5),
+            Player("Player5878", 1, 5),
             Player("Player6", 1, 6),
             Player("Player7", 1, 7),
-            Player("Player8", 1, 8),
+            Player("Player8", 1, 88785),
             Player("Player9", 1, 9),
             Player("Player10", 1, 10)
         )
