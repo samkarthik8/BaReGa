@@ -18,6 +18,7 @@
     <string name="initial_score">0</string>
     <string name="level_cleared_message">LEVEL CLEARED</string>
     <string name="level_failed_message">LEVEL FAILED</string>
+    <string name="new_high_score_message">NEW HIGH SCORE!</string>
     <string name="your_score_is">Your score is</string>
     <string name="ok_button_text">OK</string>
     <string name="change_player_name_string">CHANGE PLAYER NAME</string>
