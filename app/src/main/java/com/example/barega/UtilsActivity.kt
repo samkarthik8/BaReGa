@@ -72,7 +72,6 @@ object Utils {
     fun updateChancesLeft(context: Context, textViewId: String): Int {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 var currentChancesLeft = it.text.toString().toInt()
@@ -91,7 +90,6 @@ object Utils {
     fun setInitialChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 val currentChancesLeft =
@@ -107,7 +105,6 @@ object Utils {
     fun resetChancesLeft(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 val currentChancesLeft =
@@ -123,7 +120,6 @@ object Utils {
     fun resetLevel(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 val currentLevel = 1
@@ -138,7 +134,6 @@ object Utils {
     fun updateLevel(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 var currentLevel = it.text.toString().toInt()
@@ -154,7 +149,6 @@ object Utils {
     fun updateScore(context: Context, textViewId: String, chancesLeft: Int): Int {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 var currentScore = it.text.toString().toInt()
@@ -173,7 +167,6 @@ object Utils {
     fun resetScore(context: Context, textViewId: String) {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
-
         textView?.let {
             try {
                 val currentScore = 0
@@ -213,7 +206,6 @@ object Utils {
         var blue = 0
         textView?.let {
             val background = it.background
-
             if (background is ColorDrawable) {
                 val currentColor = background.color
                 red = Color.red(currentColor)
