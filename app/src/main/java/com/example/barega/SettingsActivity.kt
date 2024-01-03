@@ -49,6 +49,12 @@ class SettingsActivity : AppCompatActivity() {
             if (newPlayerName.length >= 3) {
                 updatePlayerNameInPrefs(newPlayerName)
                 alertDialog.dismiss() // Dismiss the dialog when conditions are met
+                // Show a Toast indicating the player name change
+                Toast.makeText(
+                    this,
+                    "Player name changed to: $newPlayerName",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 // Show a toast or any other feedback indicating the minimum length requirement
                 // In a real application, consider using a Snackbar or a custom Toast for a better user experience
