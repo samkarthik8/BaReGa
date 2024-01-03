@@ -20,6 +20,11 @@ class HighScoreFragment : DialogFragment() {
         val okButton = view.findViewById<Button>(R.id.okButton)
         okButton.setOnClickListener {
             // Handle "OK" button click here
+            Utils.setLevelQuestionColor(requireContext())
+            Utils.resetChancesLeft(requireContext(), "chancesLeft")
+            Utils.resetLevel(requireContext(), "currentLevel")
+            Utils.resetScore(requireContext(), "currentScore")
+            currentScoreValue = 0
             dismiss() // Close the dialog
         }
         // Prevent the dialog from being canceled when touched outside its window
