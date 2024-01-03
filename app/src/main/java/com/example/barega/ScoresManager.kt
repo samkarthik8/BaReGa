@@ -48,4 +48,9 @@ class ScoresManager(context: Context) {
             emptyList()
         }
     }
+
+    fun isHigherScore(newScore: Player): Boolean {
+        val topScores = getTopScores()
+        return topScores.any { newScore.scoreValue > it.scoreValue }
+    }
 }
