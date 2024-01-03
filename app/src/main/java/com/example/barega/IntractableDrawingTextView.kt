@@ -184,7 +184,6 @@ class IntractableDrawingTextView : AppCompatTextView {
             if (fragmentManager != null) {
                 val levelFailedDialog = LevelFailedDialogFragment()
                 levelFailedDialog.show(fragmentManager, "levelFailedDialog")
-                // Use a Handler to dismiss the dialog after a delay (1 second)
                 Utils.updateScore(context, "currentScore", chancesLeft)
                 chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
             }
