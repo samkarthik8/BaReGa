@@ -180,6 +180,19 @@ class IntractableDrawingTextView : AppCompatTextView {
             Utils.setLevelQuestionColor(context)
         }
         if (chancesLeft < 1) {
+            val currentLevel = Utils.getCurrentLevel(context)
+            val currentPlayerName = Utils.getCurrentPlayerNameFromPrefs(context)
+            val newScore = ScoresManager.Player(currentPlayerName, currentLevel, currentScoreValue)
+            val scoresManager = ScoresManager(context)
+            if (scoresManager.isHigherScore(newScore)) {
+                Log.d("New High Score", "New High Score")
+                // Update the scores with the new score
+                val updatedScores = scoresManager.getTopScores().toMutableList().apply {
+                    add(newScore)
+                    sortByDescending { it.scoreValue } // Sort the list by score in descending order
+                }.take(10) // Take only the top 10 scores
+                scoresManager.saveScores(updatedScores)
+            }
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
                 val levelFailedDialog = LevelFailedDialogFragment()

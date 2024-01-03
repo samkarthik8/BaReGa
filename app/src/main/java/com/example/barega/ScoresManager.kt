@@ -14,20 +14,23 @@ class ScoresManager(context: Context) {
     )
 
     init {
-        // Initialize with hardcoded values initially
-        val initialScores = listOf(
-            Player("Player1", 1, 1),
-            Player("Player2", 1, 2),
-            Player("Player3", 1, 3),
-            Player("Player4", 1, 4),
-            Player("Player5878", 1, 5),
-            Player("Player6", 1, 6),
-            Player("Player7", 1, 7),
-            Player("Player8", 1, 88785),
-            Player("Player9", 1, 9),
-            Player("Player10", 1, 10)
-        )
-        saveScores(initialScores)
+        // Check if scores are not already initialized in preferences
+        if (sharedPreferences.getStringSet("scores", null) == null) {
+            // Initialize with hardcoded values if scores are empty
+            val initialScores = listOf(
+                Player("Player1", 1, 1),
+                Player("Player2", 1, 2),
+                Player("Player3", 1, 3),
+                Player("Player4", 1, 4),
+                Player("Player5878", 1, 5),
+                Player("Player6", 1, 6),
+                Player("Player7", 1, 7),
+                Player("Player8", 1, 88785),
+                Player("Player9", 1, 9),
+                Player("Player10", 1, 10)
+            )
+            saveScores(initialScores)
+        }
     }
 
     fun saveScores(scores: List<Player>) {
