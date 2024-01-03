@@ -9,7 +9,7 @@
         android:layout_centerHorizontal="true"
         android:text="@string/new_high_score_message"
         android:textColor="@android:color/white"
-        android:textSize="36sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
