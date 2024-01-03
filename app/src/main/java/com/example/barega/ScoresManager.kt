@@ -30,7 +30,7 @@ class ScoresManager(context: Context) {
         saveScores(initialScores)
     }
 
-    private fun saveScores(scores: List<Player>) {
+    fun saveScores(scores: List<Player>) {
         // Convert the list of Player objects to a Set of Strings
         val scoresSet = scores.map { "${it.playerName},${it.level},${it.scoreValue}" }.toSet()
         sharedPreferences.edit().putStringSet("scores", scoresSet).apply()
