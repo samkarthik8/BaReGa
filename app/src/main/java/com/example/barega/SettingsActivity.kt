@@ -19,8 +19,8 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     fun onChangePlayerNameButtonClick(view: View) {
-        val alertDialogBuilder = AlertDialog.Builder(this)
-        val input = EditText(this)
+        val alertDialogBuilder = AlertDialog.Builder(view.context)
+        val input = EditText(view.context)
         // Retrieve the existing player name and set it as the default text
         val currentName = Utils.getCurrentPlayerNameFromPrefs(view.context)
         if (currentName.isEmpty()) {
@@ -30,6 +30,8 @@ class SettingsActivity : AppCompatActivity() {
         // Set the maximum length of the input to 10 characters
         val maxLength = 10
         input.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+        // Flag to track whether the name is changed
+        var nameChanged = false
         // Set up the AlertDialog
         alertDialogBuilder.setTitle("Change Player Name")
         alertDialogBuilder.setMessage("Enter your new player name:")
@@ -44,19 +46,24 @@ class SettingsActivity : AppCompatActivity() {
             // Check if the new player name meets the minimum length requirement
             val newPlayerName = input.text.toString()
             if (newPlayerName.length >= 3) {
-                Utils.updatePlayerNameInPrefs(view.context, newPlayerName)
+                if (currentName != newPlayerName) {
+                    // Name has changed
+                    Utils.updatePlayerNameInPrefs(view.context, newPlayerName)
+                    nameChanged = true
+                }
                 alertDialog.dismiss() // Dismiss the dialog when conditions are met
-                // Show a Toast indicating the player name change
-                Toast.makeText(
-                    this,
-                    "Player name changed to: $newPlayerName",
-                    Toast.LENGTH_SHORT
-                ).show()
+                // Show a Toast indicating the player name change or not
+                val toastMessage = if (nameChanged) {
+                    "Player name changed to: $newPlayerName"
+                } else {
+                    "Player name remains the same: $currentName"
+                }
+                Toast.makeText(view.context, toastMessage, Toast.LENGTH_SHORT).show()
             } else {
                 // Show a toast or any other feedback indicating the minimum length requirement
                 // In a real application, consider using a Snackbar or a custom Toast for a better user experience
                 Toast.makeText(
-                    this,
+                    view.context,
                     "Player name must be at least 3 characters long",
                     Toast.LENGTH_SHORT
                 ).show()
