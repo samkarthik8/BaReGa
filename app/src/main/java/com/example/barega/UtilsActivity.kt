@@ -2,6 +2,7 @@ package com.example.barega
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
@@ -12,6 +13,7 @@ import kotlin.random.Random
 
 @SuppressLint("DiscouragedApi")
 object Utils {
+    private val sharedPreferencesSettings = "SettingsPrefsFile"
     private fun setTextViewBackgroundColor(
         context: Context,
         textViewId: String,
@@ -243,5 +245,19 @@ object Utils {
             0,
             barBlue
         )
+    }
+    // Function to update the player name in SharedPreferences
+    fun updatePlayerNameInPrefs(context: Context, newPlayerName: String) {
+        val prefs: SharedPreferences =
+            context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.putString("currentPlayerName", newPlayerName)
+        editor.apply()
+    }
+    // Function to retrieve the current player name from SharedPreferences
+    fun getCurrentPlayerNameFromPrefs(context: Context): String {
+        val prefs: SharedPreferences =
+            context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        return prefs.getString("currentPlayerName", "") ?: ""
     }
 }

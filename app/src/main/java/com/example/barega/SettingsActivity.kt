@@ -3,9 +3,7 @@
 package com.example.barega
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
@@ -14,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class SettingsActivity : AppCompatActivity() {
-    private val sharedPreferencesSettings = "SettingsPrefsFile"
     private val defaultPlayerName = "Karthik"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +22,9 @@ class SettingsActivity : AppCompatActivity() {
         val alertDialogBuilder = AlertDialog.Builder(this)
         val input = EditText(this)
         // Retrieve the existing player name and set it as the default text
-        val currentName = getCurrentPlayerNameFromPrefs()
+        val currentName = Utils.getCurrentPlayerNameFromPrefs(view.context)
         if (currentName.isEmpty()) {
-            updatePlayerNameInPrefs(defaultPlayerName)
+            Utils.updatePlayerNameInPrefs(view.context, defaultPlayerName)
         }
         input.setText(currentName)
         // Set the maximum length of the input to 10 characters
@@ -47,7 +44,7 @@ class SettingsActivity : AppCompatActivity() {
             // Check if the new player name meets the minimum length requirement
             val newPlayerName = input.text.toString()
             if (newPlayerName.length >= 3) {
-                updatePlayerNameInPrefs(newPlayerName)
+                Utils.updatePlayerNameInPrefs(view.context, newPlayerName)
                 alertDialog.dismiss() // Dismiss the dialog when conditions are met
                 // Show a Toast indicating the player name change
                 Toast.makeText(
@@ -69,20 +66,6 @@ class SettingsActivity : AppCompatActivity() {
         alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
             // Do nothing or handle cancellation
         }
-    }
-    // Function to retrieve the current player name from SharedPreferences
-    fun getCurrentPlayerNameFromPrefs(): String {
-        val prefs: SharedPreferences =
-            getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
-        return prefs.getString("currentPlayerName", "") ?: ""
-    }
-    // Function to update the player name in SharedPreferences
-    private fun updatePlayerNameInPrefs(newPlayerName: String) {
-        val prefs: SharedPreferences =
-            getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = prefs.edit()
-        editor.putString("currentPlayerName", newPlayerName)
-        editor.apply()
     }
     @Suppress("unused")
     fun onBackButtonClick(view: View) {
