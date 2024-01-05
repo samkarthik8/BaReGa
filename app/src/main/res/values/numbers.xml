@@ -4,7 +4,7 @@
     <dimen name="button_margin">30dp</dimen>
     <dimen name="button_padding">20dp</dimen>
     <dimen name="menu_padding">20dp</dimen>
-    <integer name="chances_for_each_level">5</integer>
-    <integer name="value_for_each_chance">6</integer>
+    <integer name="chances_for_each_level">10</integer>
+    <integer name="value_for_each_chance">3</integer>
     <integer name="difficulty">100</integer>
 </resources>
