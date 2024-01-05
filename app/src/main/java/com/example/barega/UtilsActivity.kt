@@ -14,6 +14,7 @@ import kotlin.random.Random
 @SuppressLint("DiscouragedApi")
 object Utils {
     private val sharedPreferencesSettings = "SettingsPrefsFile"
+    private var timeTakenInSeconds = 0
     private fun setTextViewBackgroundColor(
         context: Context,
         textViewId: String,
@@ -267,7 +268,7 @@ object Utils {
         levelEndTime = System.currentTimeMillis()
         val timeTakenInMillis = levelEndTime - levelStartTime
         // Convert milliseconds to seconds for better readability
-        val timeTakenInSeconds = timeTakenInMillis / 1000
+        timeTakenInSeconds = (timeTakenInMillis / 1000).toInt()
         println("Time taken to clear the level: $timeTakenInSeconds seconds")
     }
     // Function to update the player name in SharedPreferences
