@@ -261,6 +261,14 @@ object Utils {
             barBlue
         )
     }
+
+    fun checkTimeTakenToClearLevel() {
+        levelEndTime = System.currentTimeMillis()
+        val timeTakenInMillis = levelEndTime - levelStartTime
+        // Convert milliseconds to seconds for better readability
+        val timeTakenInSeconds = timeTakenInMillis / 1000
+        println("Time taken to clear the level: $timeTakenInSeconds seconds")
+    }
     // Function to update the player name in SharedPreferences
     fun updatePlayerNameInPrefs(context: Context, newPlayerName: String) {
         val prefs: SharedPreferences =
