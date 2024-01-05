@@ -3,6 +3,7 @@ package com.example.barega
 import android.content.Context
 import android.content.SharedPreferences
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 class ScoresManager(context: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -59,8 +60,22 @@ class ScoresManager(context: Context) {
     }
 
     fun resetHighScores(context: Context) {
-        sharedPreferences.edit().remove("scores").apply()
-        // Display a Toast notification after resetting high scores
-        Toast.makeText(context, "High scores reset", Toast.LENGTH_SHORT).show()
+        // Use an AlertDialog to confirm the reset action
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle("Reset High Scores")
+        alertDialogBuilder.setMessage("Are you sure you want to reset high scores?")
+
+        alertDialogBuilder.setPositiveButton("Yes") { _, _ ->
+            // User clicked Yes, reset high scores
+            sharedPreferences.edit().remove("scores").apply()
+            // Display a Toast notification after resetting high scores
+            Toast.makeText(context, "High scores reset", Toast.LENGTH_SHORT).show()
+        }
+
+        alertDialogBuilder.setNegativeButton("No") { _, _ ->
+            // User clicked No, do nothing
+        }
+        // Show the AlertDialog
+        alertDialogBuilder.create().show()
     }
 }
