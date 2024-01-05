@@ -1,5 +1,4 @@
 package com.example.barega
-
 import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Canvas
@@ -13,22 +12,18 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
     private var dotY: Float = 0f
     private var chancesLeft: Int = resources.getInteger(R.integer.chances_for_each_level)
     private val dotRadius = 10f
     private val dotPaint = Paint()
-
     constructor(context: Context) : super(context) {
         init()
     }
-
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init()
     }
-
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
@@ -36,11 +31,9 @@ class IntractableDrawingTextView : AppCompatTextView {
     ) {
         init()
     }
-
     private fun init() {
         dotPaint.color = Color.RED
     }
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw the dot on the canvas
@@ -52,7 +45,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         "com.example.barega:id/blueBar" to Color.RED,
         "com.example.barega:id/greenBar" to Color.BLUE,
     )
-
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
@@ -70,20 +62,15 @@ class IntractableDrawingTextView : AppCompatTextView {
                 // Call your custom click handling logic
                 handleCustomClick()
                 performClick()
-
                 return true
             }
-
             else -> return super.onTouchEvent(event)
         }
     }
-
     override fun performClick(): Boolean {
         Log.d("IntractableDrawingTextView", "In super")
-
         return super.performClick()
     }
-
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -94,7 +81,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         }
         return null
     }
-
     private fun handleCustomClick() {
         super.performClick()
         // Handle the click event here
@@ -131,7 +117,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         // Set the background color based on RGB values
         setBackgroundColor(Color.rgb(red, green, blue))
         // Set the background color based on the Y coordinate
-//        Utils.setAnswerColor(context, "answerColorSection", red, green, blue)
         Utils.setCurrentRGBColors(
             context,
             "answerColorSection",
@@ -160,7 +145,6 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-//        chancesLeft--
         val levelCleared: Boolean =
             Utils.checkLevelCleared(context, resources.getInteger(R.integer.difficulty))
         if (levelCleared) {
@@ -185,7 +169,6 @@ class IntractableDrawingTextView : AppCompatTextView {
             val newScore = ScoresManager.Player(currentPlayerName, currentLevel, currentScoreValue)
             val scoresManager = ScoresManager(context)
             val fragmentManager = findFragmentManager(context)
-
             if (scoresManager.isHigherScore(newScore)) {
                 Log.d("New High Score", "New High Score")
                 // Update the scores with the new score
@@ -193,7 +176,6 @@ class IntractableDrawingTextView : AppCompatTextView {
                     add(newScore)
                     sortByDescending { it.scoreValue } // Sort the list by score in descending order
                 }.take(10) // Take only the top 10 scores
-
                 scoresManager.saveScores(updatedScores)
                 // Show the HighScoreFragment instead of LevelFailedDialogFragment
                 val highScoreFragment = HighScoreFragment()
@@ -207,11 +189,9 @@ class IntractableDrawingTextView : AppCompatTextView {
                     levelFailedDialog.show(fragmentManager, "levelFailedDialog")
                 }
             }
-
             Utils.updateScore(context, "currentScore", chancesLeft)
             chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
         }
-
         performClick()
     }
 }
