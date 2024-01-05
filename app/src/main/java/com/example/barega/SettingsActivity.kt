@@ -18,6 +18,11 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
     }
 
+    fun onResetHighScoresClick(view: View) {
+        val scoresManager = ScoresManager(view.context)
+        scoresManager.resetHighScores(view.context)
+    }
+
     fun onChangePlayerNameButtonClick(view: View) {
         val alertDialogBuilder = AlertDialog.Builder(view.context)
         val input = EditText(view.context)

@@ -2,6 +2,7 @@ package com.example.barega
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.widget.Toast
 
 class ScoresManager(context: Context) {
     private val sharedPreferences: SharedPreferences =
@@ -55,5 +56,11 @@ class ScoresManager(context: Context) {
     fun isHigherScore(newScore: Player): Boolean {
         val topScores = getTopScores()
         return topScores.any { newScore.scoreValue > it.scoreValue }
+    }
+
+    fun resetHighScores(context: Context) {
+        sharedPreferences.edit().remove("scores").apply()
+        // Display a Toast notification after resetting high scores
+        Toast.makeText(context, "High scores reset", Toast.LENGTH_SHORT).show()
     }
 }
