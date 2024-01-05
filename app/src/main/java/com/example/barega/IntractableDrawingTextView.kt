@@ -1,4 +1,5 @@
 package com.example.barega
+
 import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Canvas
@@ -12,18 +13,22 @@ import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+
 class IntractableDrawingTextView : AppCompatTextView {
     private var dotX: Float = 0f
     private var dotY: Float = 0f
     private var chancesLeft: Int = resources.getInteger(R.integer.chances_for_each_level)
     private val dotRadius = 10f
     private val dotPaint = Paint()
+
     constructor(context: Context) : super(context) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
@@ -31,9 +36,11 @@ class IntractableDrawingTextView : AppCompatTextView {
     ) {
         init()
     }
+
     private fun init() {
         dotPaint.color = Color.RED
     }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw the dot on the canvas
@@ -45,6 +52,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         "com.example.barega:id/blueBar" to Color.RED,
         "com.example.barega:id/greenBar" to Color.BLUE,
     )
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
@@ -64,13 +72,16 @@ class IntractableDrawingTextView : AppCompatTextView {
                 performClick()
                 return true
             }
+
             else -> return super.onTouchEvent(event)
         }
     }
+
     override fun performClick(): Boolean {
         Log.d("IntractableDrawingTextView", "In super")
         return super.performClick()
     }
+
     private fun findFragmentManager(context: Context): FragmentManager? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -81,6 +92,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         }
         return null
     }
+
     private fun handleCustomClick() {
         super.performClick()
         // Handle the click event here
@@ -148,6 +160,7 @@ class IntractableDrawingTextView : AppCompatTextView {
         val levelCleared: Boolean =
             Utils.checkLevelCleared(context, resources.getInteger(R.integer.difficulty))
         if (levelCleared) {
+            Utils.checkTimeTakenToClearLevel()
             val fragmentManager = findFragmentManager(context)
             if (fragmentManager != null) {
                 val levelPassedDialog = LevelPassedDialogFragment()

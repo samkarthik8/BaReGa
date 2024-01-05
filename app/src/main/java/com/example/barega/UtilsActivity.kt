@@ -49,6 +49,7 @@ object Utils {
         val questionTextRed = 255 - questionRed
         val questionTextGreen = 255 - questionGreen
         val questionTextBlue = 255 - questionBlue
+        levelStartTime = System.currentTimeMillis()
         setTextViewBackgroundColor(
             context,
             "questionColorSection",
