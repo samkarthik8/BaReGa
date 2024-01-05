@@ -171,7 +171,11 @@ object Utils {
         textView?.let {
             try {
                 var currentScore = it.text.toString().toInt()
-                currentScore += chancesLeft * context.resources.getInteger(R.integer.value_for_each_chance)
+                currentScore += if (timeTakenInSeconds < 60) {
+                    (chancesLeft * context.resources.getInteger(R.integer.value_for_each_chance)) + ((60 - timeTakenInSeconds) * 2)
+                } else {
+                    chancesLeft * context.resources.getInteger(R.integer.value_for_each_chance)
+                }
                 it.text = currentScore.toString()
                 return currentScore
             } catch (e: NumberFormatException) {

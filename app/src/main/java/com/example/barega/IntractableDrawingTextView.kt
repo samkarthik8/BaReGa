@@ -202,7 +202,7 @@ class IntractableDrawingTextView : AppCompatTextView {
                     levelFailedDialog.show(fragmentManager, "levelFailedDialog")
                 }
             }
-            Utils.updateScore(context, "currentScore", chancesLeft)
+//            Utils.updateScore(context, "currentScore", chancesLeft)
             chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
         }
         performClick()
