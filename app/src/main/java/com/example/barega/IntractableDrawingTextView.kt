@@ -38,7 +38,7 @@ class IntractableDrawingTextView : AppCompatTextView {
     }
 
     private fun init() {
-        dotPaint.color = Color.RED
+        dotPaint.color = Color.TRANSPARENT
     }
 
     override fun onDraw(canvas: Canvas) {
