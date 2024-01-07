@@ -187,33 +187,38 @@ class IntractableDrawingTextView : AppCompatTextView {
             Utils.setLevelQuestionColor(context)
         }
         if (chancesLeft < 1) {
-            val currentLevel = Utils.getCurrentLevel(context)
-            val currentPlayerName = Utils.getCurrentPlayerNameFromPrefs(context)
-            val newScore = ScoresManager.Player(currentPlayerName, currentLevel, currentScoreValue)
-            val scoresManager = ScoresManager(context)
-            val fragmentManager = findFragmentManager(context)
-            if (scoresManager.isHigherScore(newScore)) {
-                Log.d("New High Score", "New High Score")
-                // Update the scores with the new score
-                val updatedScores = scoresManager.getTopScores().toMutableList().apply {
-                    add(newScore)
-                    sortByDescending { it.scoreValue } // Sort the list by score in descending order
-                }.take(10) // Take only the top 10 scores
-                scoresManager.saveScores(updatedScores)
-                // Show the HighScoreFragment instead of LevelFailedDialogFragment
-                val highScoreFragment = HighScoreFragment()
-                if (fragmentManager != null) {
-                    highScoreFragment.show(fragmentManager, "highScoreFragment")
+            Utils.showAnswerWithRGBColors(context)
+            // Delay the code execution for 1 second
+            Handler(Looper.getMainLooper()).postDelayed({
+                val currentLevel = Utils.getCurrentLevel(context)
+                val currentPlayerName = Utils.getCurrentPlayerNameFromPrefs(context)
+                val newScore =
+                    ScoresManager.Player(currentPlayerName, currentLevel, currentScoreValue)
+                val scoresManager = ScoresManager(context)
+                val fragmentManager = findFragmentManager(context)
+
+                if (scoresManager.isHigherScore(newScore)) {
+                    Log.d("New High Score", "New High Score")
+                    // Update the scores with the new score
+                    val updatedScores = scoresManager.getTopScores().toMutableList().apply {
+                        add(newScore)
+                        sortByDescending { it.scoreValue } // Sort the list by score in descending order
+                    }.take(10) // Take only the top 10 scores
+                    scoresManager.saveScores(updatedScores)
+                    // Show the HighScoreFragment instead of LevelFailedDialogFragment
+                    val highScoreFragment = HighScoreFragment()
+                    if (fragmentManager != null) {
+                        highScoreFragment.show(fragmentManager, "highScoreFragment")
+                    }
+                } else {
+                    // If it's not a new high score, show the LevelFailedDialogFragment
+                    val levelFailedDialog = LevelFailedDialogFragment()
+                    if (fragmentManager != null) {
+                        levelFailedDialog.show(fragmentManager, "levelFailedDialog")
+                    }
                 }
-            } else {
-                // If it's not a new high score, show the LevelFailedDialogFragment
-                val levelFailedDialog = LevelFailedDialogFragment()
-                if (fragmentManager != null) {
-                    levelFailedDialog.show(fragmentManager, "levelFailedDialog")
-                }
-            }
-//            Utils.updateScore(context, "currentScore", chancesLeft)
-            chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
+                chancesLeft = resources.getInteger(R.integer.chances_for_each_level)
+            }, 1000) // 1000 milliseconds (1 second) delay
         }
         performClick()
     }
