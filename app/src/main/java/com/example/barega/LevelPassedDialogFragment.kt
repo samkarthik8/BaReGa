@@ -11,7 +11,7 @@ class LevelPassedDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Show Answer lines
+        // Show Answer lines Temporarily
         Utils.showAnswerWithRGBColorsTemporarily(
             requireContext()
         )
