@@ -11,9 +11,5 @@ class GameActivity : AppCompatActivity() {
         Utils.setInitialChancesLeft(this, "chancesLeft")
         Utils.setLevelQuestionColor(this)
         Utils.setInitialBarColors(this)
-        // Show Answer lines
-        Utils.showAnswerWithRGBColors(
-            this
-        )
     }
 }
