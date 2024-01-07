@@ -11,6 +11,10 @@ class LevelPassedDialogFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Show Answer lines
+        Utils.showAnswerWithRGBColorsTemporarily(
+            requireContext()
+        )
         return inflater.inflate(R.layout.level_passed, container, false)
     }
 }

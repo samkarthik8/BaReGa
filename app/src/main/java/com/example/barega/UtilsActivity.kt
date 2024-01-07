@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.math.abs
 import kotlin.random.Random
+import android.os.Handler
 
 @SuppressLint("DiscouragedApi")
 object Utils {
@@ -273,6 +274,63 @@ object Utils {
         }
     }
 
+
+    fun showAnswerWithRGBColorsTemporarily(context: Context) {
+        val (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
+            getCurrentRGBBackgroundColor(context, "questionColorSection")
+        // Get the total height of the blueBar
+        val blueBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.blueBar)
+        val redBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.redBar)
+        val greenBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.greenBar)
+        val greenAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.greenAnswerLine)
+        val blueAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.blueAnswerLine)
+        val redAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.redAnswerLine)
+        if (blueBar != null && greenAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = 1 - (currentQuestionBlue / 255.0f)
+            // Set the vertical bias for greenAnswerLine
+            val params = greenAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.blueBar
+            params.bottomToBottom = R.id.blueBar
+            params.verticalBias = verticalPosition
+            greenAnswerLine.layoutParams = params
+            // Make the green line visible
+            greenAnswerLine.visibility = View.VISIBLE
+        }
+        if (redBar != null && blueAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = 1 - (currentQuestionRed / 255.0f)
+            // Set the vertical bias for blueAnswerLine
+            val params = blueAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.blueBar
+            params.bottomToBottom = R.id.blueBar
+            params.verticalBias = verticalPosition
+            blueAnswerLine.layoutParams = params
+            // Make the blue line visible
+            blueAnswerLine.visibility = View.VISIBLE
+        }
+        if (greenBar != null && redAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = 1 - (currentQuestionGreen / 255.0f)
+            // Set the vertical bias for redAnswerLine
+            val params = redAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.greenBar
+            params.bottomToBottom = R.id.greenBar
+            params.verticalBias = verticalPosition
+            redAnswerLine.layoutParams = params
+            // Make the blue line visible
+            redAnswerLine.visibility = View.VISIBLE
+        }
+        // Use a Handler to set visibility to INVISIBLE after a delay
+        Handler().postDelayed({
+            greenAnswerLine?.visibility = View.INVISIBLE
+            blueAnswerLine?.visibility = View.INVISIBLE
+            redAnswerLine?.visibility = View.INVISIBLE
+        }, 1000) // 1000 milliseconds (1 second) delay
+    }
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)
