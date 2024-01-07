@@ -222,13 +222,18 @@ object Utils {
         return levelCleared
     }
 
-    fun showAnswerWithRGBColors(context: Context, greenLinePosition: Float) {
+    fun showAnswerWithRGBColors(context: Context) {
         val (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
             getCurrentRGBBackgroundColor(context, "questionColorSection")
         // Get the total height of the blueBar
         val blueBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.blueBar)
         val greenAnswerLine =
             (context as? AppCompatActivity)?.findViewById<View>(R.id.greenAnswerLine)
+        var greenLinePosition = (currentQuestionBlue / 255.0f).coerceIn(0.0f, 1.0f)
+        greenLinePosition = 1 - greenLinePosition
+//        var greenLinePosition = 0.5f
+        Log.e("currentQuestionBlue", "currentQuestionBlue: $currentQuestionBlue")
+        Log.e("greenLinePosition", "greenLinePosition: $greenLinePosition")
 
         if (blueBar != null && greenAnswerLine != null) {
             // Calculate the vertical position based on the parameter

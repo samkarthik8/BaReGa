@@ -13,7 +13,7 @@ class GameActivity : AppCompatActivity() {
         Utils.setInitialBarColors(this)
         // Show Answer lines
         Utils.showAnswerWithRGBColors(
-            this, 0.5f
+            this
         )
     }
 }
