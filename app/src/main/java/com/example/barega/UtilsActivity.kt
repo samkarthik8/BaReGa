@@ -6,8 +6,10 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -218,6 +220,28 @@ object Utils {
         levelCleared =
             redDifference < difficulty && greenDifference < difficulty && blueDifference < difficulty
         return levelCleared
+    }
+
+    fun showAnswerWithRGBColors(context: Context, greenLinePosition: Float) {
+        val (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
+            getCurrentRGBBackgroundColor(context, "questionColorSection")
+        // Get the total height of the blueBar
+        val blueBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.blueBar)
+        val greenAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.greenAnswerLine)
+
+        if (blueBar != null && greenAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = greenLinePosition
+            // Set the vertical bias for greenAnswerLine
+            val params = greenAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.blueBar
+            params.bottomToBottom = R.id.blueBar
+            params.verticalBias = verticalPosition
+            greenAnswerLine.layoutParams = params
+            // Make the green line visible
+            greenAnswerLine.visibility = View.VISIBLE
+        }
     }
 
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {

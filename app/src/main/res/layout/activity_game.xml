@@ -27,6 +27,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionColorSection"
         app:layout_constraintWidth_percent="0.333" />
+    <!-- Green answer line -->
+    <View
+        android:id="@+id/greenAnswerLine"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="@android:color/holo_green_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/blueBar"
+        app:layout_constraintEnd_toEndOf="@+id/blueBar"
+        app:layout_constraintStart_toStartOf="@+id/blueBar"
+        app:layout_constraintTop_toBottomOf="@+id/blueBar" />
     <!-- Red bar -->
     <com.example.barega.IntractableDrawingTextView
         android:id="@+id/redBar"
