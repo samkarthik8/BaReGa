@@ -21,7 +21,7 @@ class IntractableDrawingTextView : AppCompatTextView {
     private val dotRadius = 10f
     private val dotPaint = Paint()
     private var lastTouchTime: Long = 0
-    private val delayThreshold = 1000L  // 1 second delay
+    private val delayThreshold = 500L
 
     constructor(context: Context) : super(context) {
         init()
