@@ -8,9 +8,12 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-//        var level_number = 1
         Utils.setInitialChancesLeft(this, "chancesLeft")
         Utils.setLevelQuestionColor(this)
         Utils.setInitialBarColors(this)
+        // Show Answer lines
+        Utils.showAnswerWithRGBColors(
+            this, 0.5f
+        )
     }
 }
