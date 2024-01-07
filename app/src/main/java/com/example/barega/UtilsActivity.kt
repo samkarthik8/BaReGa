@@ -218,7 +218,7 @@ object Utils {
         val greenDifference = abs(currentQuestionGreen - currentAnswerGreen)
         // Check if the difference is less than 50
         levelCleared =
-            redDifference < difficulty && greenDifference < difficulty && blueDifference < difficulty
+            redDifference < (250 - difficulty) && greenDifference < (250 - difficulty) && blueDifference < (250 - difficulty)
         return levelCleared
     }
 

@@ -6,5 +6,5 @@
     <dimen name="menu_padding">20dp</dimen>
     <integer name="chances_for_each_level">5</integer>
     <integer name="value_for_each_chance">3</integer>
-    <integer name="difficulty">100</integer>
+    <integer name="maximum_difficulty">245</integer>
 </resources>

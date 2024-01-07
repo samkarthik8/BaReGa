@@ -157,8 +157,9 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
+
         val levelCleared: Boolean =
-            Utils.checkLevelCleared(context, resources.getInteger(R.integer.difficulty))
+            Utils.checkLevelCleared(context, resources.getInteger(R.integer.maximum_difficulty))
         if (levelCleared) {
             Utils.checkTimeTakenToClearLevel()
             val fragmentManager = findFragmentManager(context)
