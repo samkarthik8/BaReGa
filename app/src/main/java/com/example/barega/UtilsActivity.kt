@@ -227,17 +227,17 @@ object Utils {
             getCurrentRGBBackgroundColor(context, "questionColorSection")
         // Get the total height of the blueBar
         val blueBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.blueBar)
+        val redBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.redBar)
+        val greenBar = (context as? AppCompatActivity)?.findViewById<View>(R.id.greenBar)
         val greenAnswerLine =
             (context as? AppCompatActivity)?.findViewById<View>(R.id.greenAnswerLine)
-        var greenLinePosition = (currentQuestionBlue / 255.0f).coerceIn(0.0f, 1.0f)
-        greenLinePosition = 1 - greenLinePosition
-//        var greenLinePosition = 0.5f
-        Log.e("currentQuestionBlue", "currentQuestionBlue: $currentQuestionBlue")
-        Log.e("greenLinePosition", "greenLinePosition: $greenLinePosition")
-
+        val blueAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.blueAnswerLine)
+        val redAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.redAnswerLine)
         if (blueBar != null && greenAnswerLine != null) {
             // Calculate the vertical position based on the parameter
-            val verticalPosition = greenLinePosition
+            val verticalPosition = 1 - (currentQuestionBlue / 255.0f)
             // Set the vertical bias for greenAnswerLine
             val params = greenAnswerLine.layoutParams as ConstraintLayout.LayoutParams
             params.topToTop = R.id.blueBar
@@ -246,6 +246,30 @@ object Utils {
             greenAnswerLine.layoutParams = params
             // Make the green line visible
             greenAnswerLine.visibility = View.VISIBLE
+        }
+        if (redBar != null && blueAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = 1 - (currentQuestionRed / 255.0f)
+            // Set the vertical bias for blueAnswerLine
+            val params = blueAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.blueBar
+            params.bottomToBottom = R.id.blueBar
+            params.verticalBias = verticalPosition
+            blueAnswerLine.layoutParams = params
+            // Make the blue line visible
+            blueAnswerLine.visibility = View.VISIBLE
+        }
+        if (greenBar != null && redAnswerLine != null) {
+            // Calculate the vertical position based on the parameter
+            val verticalPosition = 1 - (currentQuestionGreen / 255.0f)
+            // Set the vertical bias for redAnswerLine
+            val params = redAnswerLine.layoutParams as ConstraintLayout.LayoutParams
+            params.topToTop = R.id.greenBar
+            params.bottomToBottom = R.id.greenBar
+            params.verticalBias = verticalPosition
+            redAnswerLine.layoutParams = params
+            // Make the blue line visible
+            redAnswerLine.visibility = View.VISIBLE
         }
     }
 

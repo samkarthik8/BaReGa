@@ -128,7 +128,6 @@ class IntractableDrawingTextView : AppCompatTextView {
         }
         // Set the background color based on RGB values
         setBackgroundColor(Color.rgb(red, green, blue))
-
         // Set the background color based on the Y coordinate
         Utils.setCurrentRGBColors(
             context,
