@@ -20,6 +20,8 @@ class IntractableDrawingTextView : AppCompatTextView {
     private var chancesLeft: Int = resources.getInteger(R.integer.chances_for_each_level)
     private val dotRadius = 10f
     private val dotPaint = Paint()
+    private var lastTouchTime: Long = 0
+    private val delayThreshold = 1000L  // 1 second delay
 
     constructor(context: Context) : super(context) {
         init()
@@ -54,6 +56,14 @@ class IntractableDrawingTextView : AppCompatTextView {
     )
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        val currentTime = System.currentTimeMillis()
+
+        if (currentTime - lastTouchTime < delayThreshold) {
+            // Ignore touch events within the delayThreshold
+            return true
+        }
+
+        lastTouchTime = currentTime
         when (event?.action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
                 // Update the dot position when the user touches or moves
