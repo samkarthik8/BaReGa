@@ -29,4 +29,5 @@
     <string name="enable_splash_screen_string">ENABLE SPLASH SCREEN</string>
     <string name="disable_splash_screen_string">DISABLE SPLASH SCREEN</string>
     <string name="reset_high_scores_string">RESET HIGH SCORES</string>
+    <string name="next_level">NEXT LEVEL</string>
 </resources>
