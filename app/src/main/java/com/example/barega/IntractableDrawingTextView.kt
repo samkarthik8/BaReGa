@@ -157,7 +157,6 @@ class IntractableDrawingTextView : AppCompatTextView {
             answerTextGreen,
             answerTextBlue
         )
-
         val levelCleared: Boolean =
             Utils.checkLevelCleared(context, resources.getInteger(R.integer.initial_difficulty))
         if (levelCleared) {
