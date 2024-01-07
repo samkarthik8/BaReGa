@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -12,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.math.abs
 import kotlin.random.Random
-import android.os.Handler
 
 @SuppressLint("DiscouragedApi")
 object Utils {
@@ -274,6 +274,19 @@ object Utils {
         }
     }
 
+    fun hideAnswerWithRGBColors(context: Context) {
+        val greenAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.greenAnswerLine)
+        val blueAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.blueAnswerLine)
+        val redAnswerLine =
+            (context as? AppCompatActivity)?.findViewById<View>(R.id.redAnswerLine)
+        if (redAnswerLine != null && greenAnswerLine != null && blueAnswerLine != null) {
+            greenAnswerLine?.visibility = View.INVISIBLE
+            blueAnswerLine?.visibility = View.INVISIBLE
+            redAnswerLine?.visibility = View.INVISIBLE
+        }
+    }
 
     fun showAnswerWithRGBColorsTemporarily(context: Context) {
         val (currentQuestionRed, currentQuestionGreen, currentQuestionBlue) =
@@ -331,6 +344,7 @@ object Utils {
             redAnswerLine?.visibility = View.INVISIBLE
         }, 1000) // 1000 milliseconds (1 second) delay
     }
+
     fun getCurrentRGBBackgroundColor(context: Context, textViewId: String): Triple<Int, Int, Int> {
         val resourceId = context.resources.getIdentifier(textViewId, "id", context.packageName)
         val textView = (context as? AppCompatActivity)?.findViewById<TextView>(resourceId)

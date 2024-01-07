@@ -24,6 +24,7 @@ class LevelFailedDialogFragment : DialogFragment() {
             Utils.resetChancesLeft(requireContext(), "chancesLeft")
             Utils.resetLevel(requireContext(), "currentLevel")
             Utils.resetScore(requireContext(), "currentScore")
+            Utils.hideAnswerWithRGBColors(requireContext())
             currentScoreValue = 0
             dismiss() // Close the dialog
         }
