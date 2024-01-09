@@ -77,8 +77,8 @@ class HighScoresActivity : AppCompatActivity() {
             setPadding(0, 0, 0, 50) // Adjust the values as needed
         }
     }
-    @Suppress("unused")
-    fun onBackButtonClick(view: View) {
+    fun onBackButtonClick(button: View) {
+        assert(button.id == R.id.backButton)
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
         startActivity(intent)

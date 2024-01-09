@@ -122,7 +122,9 @@ class SettingsActivity : AppCompatActivity() {
         Utils.setSelectedThemeColors(this)
         Utils.setOppositeOfSelectedThemeButtonText(this)
     }
-    fun onBackButtonClick(view: View) {
+
+    fun onBackButtonClick(button: View) {
+        assert(button.id == R.id.backButton)
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
         startActivity(intent)
