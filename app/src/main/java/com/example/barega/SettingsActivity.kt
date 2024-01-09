@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -78,6 +79,41 @@ class SettingsActivity : AppCompatActivity() {
         alertDialogBuilder.setNegativeButton("Cancel") { dialog, which ->
             // Do nothing or handle cancellation
         }
+    }
+
+    fun onToggleThemeClick(view: View) {
+        val defaultThemeName = getString(R.string.toggle_theme_light_string)
+        var selectedThemeName = Utils.getSelectedThemeNameFromPrefs(view.context)
+        if (selectedThemeName.isEmpty()) {
+            Utils.updateSelectedThemeInPrefs(view.context, defaultThemeName)
+        }
+        // Check if the selected theme contains "Dark"
+        if (selectedThemeName.contains("Dark", ignoreCase = true)) {
+            // If it contains "Dark", set it to "toggle_theme_light_string"
+            Utils.updateSelectedThemeInPrefs(
+                view.context,
+                getString(R.string.toggle_theme_light_string)
+            )
+            selectedThemeName = getString(R.string.toggle_theme_light_string)
+        } else if (selectedThemeName.contains("Light", ignoreCase = true)) {
+            // If it contains "Light", set it to "toggle_theme_dark_string"
+            Utils.updateSelectedThemeInPrefs(
+                view.context,
+                getString(R.string.toggle_theme_dark_string)
+            )
+            selectedThemeName = getString(R.string.toggle_theme_dark_string)
+        }
+// Update the text attribute of the toggleThemeButton based on the selected theme
+        val toggleThemeButton: Button = view.findViewById(R.id.toggleThemeButton)
+        toggleThemeButton.text = if (selectedThemeName.contains("Dark", ignoreCase = true)) {
+            getString(R.string.toggle_theme_light_string)
+        } else {
+            getString(R.string.toggle_theme_dark_string)
+        }
+        // Show a Toast indicating the theme changed
+        val toastMessage =
+            "Theme changed to: $selectedThemeName"
+        Toast.makeText(view.context, toastMessage, Toast.LENGTH_SHORT).show()
     }
     @Suppress("unused")
     fun onBackButtonClick(view: View) {

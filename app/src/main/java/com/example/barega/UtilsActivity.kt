@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -282,9 +283,9 @@ object Utils {
         val redAnswerLine =
             (context as? AppCompatActivity)?.findViewById<View>(R.id.redAnswerLine)
         if (redAnswerLine != null && greenAnswerLine != null && blueAnswerLine != null) {
-            greenAnswerLine?.visibility = View.INVISIBLE
-            blueAnswerLine?.visibility = View.INVISIBLE
-            redAnswerLine?.visibility = View.INVISIBLE
+            greenAnswerLine.visibility = View.INVISIBLE
+            blueAnswerLine.visibility = View.INVISIBLE
+            redAnswerLine.visibility = View.INVISIBLE
         }
     }
 
@@ -338,7 +339,7 @@ object Utils {
             redAnswerLine.visibility = View.VISIBLE
         }
         // Use a Handler to set visibility to INVISIBLE after a delay
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             greenAnswerLine?.visibility = View.INVISIBLE
             blueAnswerLine?.visibility = View.INVISIBLE
             redAnswerLine?.visibility = View.INVISIBLE
@@ -408,10 +409,27 @@ object Utils {
         editor.putString("currentPlayerName", newPlayerName)
         editor.apply()
     }
+    // Function to update the selected theme in SharedPreferences
+
+    fun updateSelectedThemeInPrefs(context: Context, selectedTheme: String) {
+        val prefs: SharedPreferences =
+            context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = prefs.edit()
+        editor.putString("selectedThemeName", selectedTheme)
+        editor.apply()
+    }
+
+    // Function to retrieve the selected theme name from SharedPreferences
+    fun getSelectedThemeNameFromPrefs(context: Context): String {
+        val prefs: SharedPreferences =
+            context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
+        return prefs.getString("selectedThemeName", "") ?: ""
+    }
     // Function to retrieve the current player name from SharedPreferences
     fun getCurrentPlayerNameFromPrefs(context: Context): String {
         val prefs: SharedPreferences =
             context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
         return prefs.getString("currentPlayerName", "") ?: ""
     }
+
 }
