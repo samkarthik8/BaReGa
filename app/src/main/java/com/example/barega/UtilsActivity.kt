@@ -1,6 +1,7 @@
 package com.example.barega
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -12,6 +13,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -410,7 +412,6 @@ object Utils {
         editor.apply()
     }
     // Function to update the selected theme in SharedPreferences
-
     fun updateSelectedThemeInPrefs(context: Context, selectedTheme: String) {
         val prefs: SharedPreferences =
             context.getSharedPreferences(sharedPreferencesSettings, Context.MODE_PRIVATE)
@@ -418,7 +419,6 @@ object Utils {
         editor.putString("selectedThemeName", selectedTheme)
         editor.apply()
     }
-
     // Function to retrieve the selected theme name from SharedPreferences
     fun getSelectedThemeNameFromPrefs(context: Context): String {
         val prefs: SharedPreferences =
@@ -432,4 +432,24 @@ object Utils {
         return prefs.getString("currentPlayerName", "") ?: ""
     }
 
+    fun setSelectedThemeColors(context: Context) {
+        val defaultThemeName = context.getString(R.string.toggle_theme_light_string)
+        val selectedThemeName = getSelectedThemeNameFromPrefs(context)
+        if (selectedThemeName.isEmpty()) {
+            updateSelectedThemeInPrefs(context, defaultThemeName)
+        }
+        var someView = (context as Activity).findViewById<TextView>(R.id.app_name_text_view)
+        if (someView==null) {
+            someView = context.findViewById(R.id.backButton)
+        }
+        val root = someView.rootView
+        val darkColor = ContextCompat.getColor(context, R.color.obsidian)
+        val lightColor = ContextCompat.getColor(context, R.color.white)
+        // Update the background based on the selected theme
+        if (selectedThemeName.contains("Dark", ignoreCase = true)) {
+            root.setBackgroundColor(darkColor)
+        } else {
+            root.setBackgroundColor(lightColor)
+        }
+    }
 }

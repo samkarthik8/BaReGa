@@ -40,7 +40,10 @@ class HighScoresActivity : AppCompatActivity() {
         headingRow.addView(createHeadingTextView(R.string.high_score_column3))
         tableLayout.addView(headingRow)
     }
-
+    override fun onResume() {
+        super.onResume()
+        Utils.setSelectedThemeColors(this)
+    }
     private fun createHeadingTextView(textResId: Int): TextView {
         return TextView(this).apply {
             layoutParams = TableRow.LayoutParams(

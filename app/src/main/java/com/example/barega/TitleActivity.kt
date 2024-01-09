@@ -13,13 +13,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 class TitleActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title)
-        val someView = findViewById<TextView>(R.id.app_name_text_view)
-        val root = someView.rootView
-        val blackColor = ContextCompat.getColor(this, R.color.black)
-        root.setBackgroundColor(blackColor)
+        setColoredText()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Utils.setSelectedThemeColors(this)
+    }
+
+    private fun setColoredText() {
         val textView = findViewById<TextView>(R.id.app_name_text_view)
         val ba = "Ba"
         val re = "Re"
@@ -45,24 +51,28 @@ class TitleActivity : AppCompatActivity() {
         )
         textView.text = coloredText
     }
+
     @Suppress("unused")
     fun startGame(view: View) {
         // Start GameActivity
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
+
     @Suppress("unused")
     fun openSettings(view: View) {
         // Start SettingsActivity
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
     }
+
     @Suppress("unused")
     fun viewHighScores(view: View) {
         // Start HighScoresActivity
         val intent = Intent(this, HighScoresActivity::class.java)
         startActivity(intent)
     }
+
     @Suppress("unused")
     fun quitApp(view: View) {
         finishAffinity() // This will finish the current activity and all parent activities, effectively closing the app

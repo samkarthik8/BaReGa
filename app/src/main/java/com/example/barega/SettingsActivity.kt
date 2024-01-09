@@ -110,10 +110,16 @@ class SettingsActivity : AppCompatActivity() {
         } else {
             getString(R.string.toggle_theme_dark_string)
         }
+        Utils.setSelectedThemeColors(this)
         // Show a Toast indicating the theme changed
         val toastMessage =
             "Theme changed to: $selectedThemeName"
         Toast.makeText(view.context, toastMessage, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Utils.setSelectedThemeColors(this)
     }
     @Suppress("unused")
     fun onBackButtonClick(view: View) {
