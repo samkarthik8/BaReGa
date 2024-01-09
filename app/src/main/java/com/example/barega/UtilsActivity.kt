@@ -439,7 +439,7 @@ object Utils {
             updateSelectedThemeInPrefs(context, defaultThemeName)
         }
         var someView = (context as Activity).findViewById<TextView>(R.id.app_name_text_view)
-        if (someView==null) {
+        if (someView == null) {
             someView = context.findViewById(R.id.backButton)
         }
         val root = someView.rootView
@@ -450,6 +450,22 @@ object Utils {
             root.setBackgroundColor(darkColor)
         } else {
             root.setBackgroundColor(lightColor)
+        }
+    }
+
+    fun setOppositeOfSelectedThemeButtonText(context: Context) {
+        val defaultThemeName = context.getString(R.string.toggle_theme_light_string)
+        val selectedThemeName = getSelectedThemeNameFromPrefs(context)
+        if (selectedThemeName.isEmpty()) {
+            updateSelectedThemeInPrefs(context, defaultThemeName)
+        }
+        val toggleThemeButton = (context as Activity).findViewById<TextView>(R.id.toggleThemeButton)
+
+        // Update the button text based on the selected theme
+        if (selectedThemeName.contains("Dark", ignoreCase = true)) {
+            toggleThemeButton.setText(context.getString(R.string.toggle_theme_light_string))
+        } else {
+            toggleThemeButton.setText(context.getString(R.string.toggle_theme_dark_string))
         }
     }
 }

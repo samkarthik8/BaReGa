@@ -120,8 +120,8 @@ class SettingsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Utils.setSelectedThemeColors(this)
+        Utils.setOppositeOfSelectedThemeButtonText(this)
     }
-    @Suppress("unused")
     fun onBackButtonClick(view: View) {
         // Start TitleActivity
         val intent = Intent(this, TitleActivity::class.java)
